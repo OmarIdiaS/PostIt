@@ -10,9 +10,7 @@
   <input type="submit" value="Create account">
 </form>
 
-<div class="message">
-  {{ message }}
-</div>
+
 
 <table>
   <tr>
@@ -36,13 +34,19 @@
       
       
       var pp = document.createElement('p'); 
-      pp.setAttribute("id","mab");
-      pp.setAttribute("value","{{}}")
+      
       document.body.appendChild(pp);
+      
       pp.appendChild(document.createTextNode(coor));
+      pp.setAttribute("id","mab");
+      pp.setAttribute("value","{{ data.coor }}");
       
     } 
   
   </script>
+  
+  <div class="message">
+  {{ message }}
+</div>
 </body>
 {% endblock %}
