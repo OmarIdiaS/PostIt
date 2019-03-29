@@ -6,7 +6,6 @@
 <form method="post">
   <input type="text" name="login" placeholder="login" value="{{ data.login }}">
     <input type="text" name="txt" placeholder="txt" value="{{ data.txt}}">
-  
 
   <input type="submit" value="Create account">
 </form>
@@ -35,15 +34,14 @@
 	var coor = "X :" + x + " Y :"  + y ; 
       
       
-      var pp = document.createElement('p'); 
+      var pp = document.createElement('input'); 
       
       document.body.appendChild(pp);
       
       pp.appendChild(document.createTextNode(coor));
       pp.setAttribute("id","mab");
-            pp.setAttribute("name","coor");
-
-      pp.setAttribute("value","{{ data.coor }}");
+      pp.setAttribute("name","coor");
+pp.setAttribute("value","{{ data.coor }}");
       
     } 
   
