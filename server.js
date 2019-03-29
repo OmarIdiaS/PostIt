@@ -57,6 +57,7 @@ app.get('/p', (req, res) => {
 app.post('/p', async (req, res) => {
   var data = {
     login: req.body.login,
+    txt : req.body.txt,
   };
   await knex('donn').insert(data)
  /* try {
@@ -70,7 +71,12 @@ app.post('/p', async (req, res) => {
       res.status(500).send('Error');
     }
   }*/
+  res.render('lst.html', { 
+        donn: await knex('donn'),
+      });
   res.redirect('/p');
+  
+  
 });
 
 

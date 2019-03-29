@@ -4,10 +4,23 @@
 {% block main %}
 <form method="post">
   <input type="text" name="login" placeholder="login" value="{{ data.login }}">
+    <input type="text" name="txt" placeholder="txt" value="{{ data.txt}}">
+
   <input type="submit" value="Create account">
 </form>
 
 <div class="message">
   {{ message }}
 </div>
+
+<table>
+  <tr>
+    <th>Login</th>
+  </tr>
+{% for d in donn %}
+  <tr>
+    <td>{{ d.login }}</td>
+  </tr>
+{% endfor %}
+</table>
 {% endblock %}

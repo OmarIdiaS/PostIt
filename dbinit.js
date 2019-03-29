@@ -11,13 +11,14 @@ async function init() {
 
   await knex.schema.createTable('donn', (table) => {
     table.string('login').primary();
+    table.string('txt');
     
   });
   
   var cols = await knex('donn').columnInfo();
   console.log('Columns:', cols);
   
-  await knex('donn').insert({ login: 'foo'});
+  await knex('donn').insert({ login: 'foo', txt : 'oui'});
   
   
   var rows = await knex('donn');
