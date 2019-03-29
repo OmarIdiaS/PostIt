@@ -44,7 +44,7 @@ app.get('/userlist', async (req, res) => {
 });*/
 app.get('/lst', async (req, res) => {
 res.render('lst.html', { 
-        dn: await knex('dn'),
+        donn: await knex('donn'),
       });
 });
 
@@ -58,7 +58,7 @@ app.post('/p', async (req, res) => {
   var data = {
     login: req.body.login,
   };
-  await knex('dn').insert(data)
+  await knex('donn').insert(data)
  /* try {
     if (data.login 
         && await knex('db').insert(data)) {

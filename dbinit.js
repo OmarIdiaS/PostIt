@@ -7,20 +7,20 @@ var knex = require('knex')({
 });
 
 async function init() {
-  await knex.schema.dropTableIfExists('dn');
+  await knex.schema.dropTableIfExists('donn');
 
-  await knex.schema.createTable('dn', (table) => {
+  await knex.schema.createTable('donn', (table) => {
     table.string('login').primary();
     
   });
   
-  var cols = await knex('dn').columnInfo();
+  var cols = await knex('donn').columnInfo();
   console.log('Columns:', cols);
   
-  await knex('dn').insert({ login: 'foo'});
+  await knex('donn').insert({ login: 'foo'});
   
   
-  var rows = await knex('dn');
+  var rows = await knex('donn');
   console.log('Rows:', rows);
 
   await knex.destroy();
