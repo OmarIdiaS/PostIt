@@ -44,7 +44,7 @@ app.get('/userlist', async (req, res) => {
 });*/
 app.get('/lst', async (req, res) => {
 res.render('lst.html', { 
-        db: await knex('users'),
+        dn: await knex('dn'),
       });
 });
 
@@ -58,6 +58,7 @@ app.post('/p', async (req, res) => {
   var data = {
     login: req.body.login,
   };
+  await knex('dn').insert(data)
  /* try {
     if (data.login 
         && await knex('db').insert(data)) {
@@ -69,7 +70,7 @@ app.post('/p', async (req, res) => {
       res.status(500).send('Error');
     }
   }*/
-  
+  res.redirect('/p');
 });
 
 

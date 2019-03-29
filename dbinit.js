@@ -14,7 +14,7 @@ async function init() {
     
   });
   
-  var cols = await knex('db').columnInfo();
+  var cols = await knex('dn').columnInfo();
   console.log('Columns:', cols);
   
   await knex('dn').insert({ login: 'foo'});
