@@ -2,9 +2,7 @@
 {% block title %}Signin{% endblock %}
 
 {% block main %}
-<body id="post_it" ondbclick=function() {
-      
-      }>
+<body id="post_it"> 
 <form method="post">
   <input type="text" name="login" placeholder="login" value="{{ data.login }}">
     <input type="text" name="txt" placeholder="txt" value="{{ data.txt}}">
@@ -28,11 +26,21 @@
 </table>
   
   <script>
+    	
+
   document.getElementById("post_it").ondblclick = function() {myFunction()};
     function myFunction() {
 	var x = event.clientX ; 
 	var y = event.clientY; 
-	var coor = "X :" + x + " Y :"  + y ; {{data.coor}}
+	var coor = "X :" + x + " Y :"  + y ; 
+      
+      
+      var pp = document.createElement('p'); 
+      pp.setAttribute("id","mab");
+      pp.setAttribute("value","{{}}")
+      document.body.appendChild(pp);
+      pp.appendChild(document.createTextNode(coor));
+      
     } 
   
   </script>
