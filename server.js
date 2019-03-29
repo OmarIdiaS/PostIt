@@ -42,19 +42,23 @@ app.get('/userlist', async (req, res) => {
     res.redirect('/');
   }
 });*/
-
+app.get('/lst', async (req, res) => {
+res.render('lst.html', { 
+        db: await knex('users'),
+      });
+});
 
 // Part 5
 
-app.get('/signin', (req, res) => {
-  res.render('signin.html');
+app.get('/p', (req, res) => {
+  res.render('post_it.html');
 });
 
-app.post('/signin', async (req, res) => {
+app.post('/p', async (req, res) => {
   var data = {
     login: req.body.login,
   };
-  try {
+ /* try {
     if (data.login 
         && await knex('db').insert(data)) {
       res.redirect('/');
@@ -64,7 +68,8 @@ app.post('/signin', async (req, res) => {
       console.error(err);
       res.status(500).send('Error');
     }
-  }
+  }*/
+  
 });
 
 
