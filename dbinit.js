@@ -10,15 +10,16 @@ async function init() {
   await knex.schema.dropTableIfExists('donn');
 
   await knex.schema.createTable('donn', (table) => {
-    table.string('login').primary();
+    table.string('login');
     table.string('txt');
+    table.string('coor');
     
   });
   
   var cols = await knex('donn').columnInfo();
   console.log('Columns:', cols);
   
-  await knex('donn').insert({ login: 'foo', txt : 'oui'});
+  await knex('donn').insert({ login: 'foo', txt : 'oui', coor : '10 : 20'});
   
   
   var rows = await knex('donn');

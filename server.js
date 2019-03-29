@@ -50,16 +50,28 @@ res.render('lst.html', {
 
 // Part 5
 
-app.get('/p', (req, res) => {
-  res.render('post_it.html');
+app.get('/p', async (req, res) => {
+res.render('post_it.html', { 
+        donn: await knex('donn'),
+      });
 });
+/*
+app.get('/p', (req, res) => {
+  //res.render('post_it.html');
+  res.render('post_it.html', { 
+        donn: await knex('donn'),
+      });
+});*/
 
 app.post('/p', async (req, res) => {
   var data = {
     login: req.body.login,
     txt : req.body.txt,
+    coor: req.body.coor,
+    
   };
   await knex('donn').insert(data)
+  
  /* try {
     if (data.login 
         && await knex('db').insert(data)) {
@@ -71,9 +83,9 @@ app.post('/p', async (req, res) => {
       res.status(500).send('Error');
     }
   }*/
-  res.render('lst.html', { 
+  /*res.render('post_it.html', { 
         donn: await knex('donn'),
-      });
+      });*/
   res.redirect('/p');
   
   
