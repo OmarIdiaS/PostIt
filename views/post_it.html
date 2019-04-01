@@ -25,19 +25,24 @@
 	var y = event.clientY; 
 	var coor = "X :" + x + " Y :"  + y ; 
       
-      
+      //var f = document.getElementByID("postt");
+      var ff = document.createElement('form'); 
+      //ff.setAtribute("id","postt");
       var pp = document.createElement('input'); 
       
-      document.body.appendChild(pp);
       
-      /*pp.appendChild(document.createTextNode(coor));
+      
+      document.body.appendChild(pp);
       pp.setAttribute("id","mab");
       pp.setAttribute("name","coor");
       pp.setAttribute("value","{{ data.coor }}");
       
-      f = document.getElementById("postt");
-      f.elements["coor"].value = 'montexte';
-*/
+      //pp.appendChild(document.createTextNode(coor));
+      
+      ff.appendChild("pp"); 
+      
+    
+
       
     } 
   
