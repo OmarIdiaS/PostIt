@@ -24,25 +24,14 @@
 	var x = event.clientX ; 
 	var y = event.clientY; 
 	var coor = "X :" + x + " Y :"  + y ; 
-     /* 
-      var f = document.getElementById("postt");
-      //var ff = document.createElement('form'); 
-      //ff.setAtribute("id","postt");
+     
       var pp = document.createElement('input'); 
-      
-      
-      
-      //document.body.appendChild(pp);
       pp.setAttribute("id","mab");
       pp.setAttribute("name","coor");
       pp.setAttribute("value","{{ data.coor }}");
+      pp.setAttribute("textContent",coor); 
       
-      //pp.appendChild(document.createTextNode(coor));
-      
-      document.f.appendChild("pp");
-      document.body.appendChild('f'); */
-      
-      document.getElementById("postt").textContent = "hola";
+      document.getElementById("postt").appendChild(pp);
     
 
       
