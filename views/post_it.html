@@ -31,7 +31,11 @@
      data = { "txt" , "xx" , "10 ; 20"}
       xhr.send(data);
       
-     alert("oui");
+     xhr.onload = function() {
+      console.log(xhr.responseText);  // Simple text
+      console.log(xhr.responseXML);   // XML (if the response is indeed XML)
+      console.log(xhr.response);      // Configurable (text by default)
+}
     } 
   
   </script>
