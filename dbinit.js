@@ -28,3 +28,4 @@ async function init() {
   await knex.destroy();
 }
 init();
+
