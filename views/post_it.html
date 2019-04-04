@@ -19,6 +19,17 @@
 	    var x = event.clientX ; 
 	    var y = event.clientY; 
 	    var coor = "X :" + x + " Y :"  + y ; 
+      
+        
+    exports.up = function(knex, Promise) {
+    knex("donn")
+        .insert({ txt: "John", last_name: "Doe" })
+        .then(function (res) {
+            return knex("groups")
+                .insert({ name: "Cool Group", user_id: res[0] });
+        });
+};
+
        
      /*
      var pp = document.createElement('input'); 
