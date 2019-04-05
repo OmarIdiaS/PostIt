@@ -57,13 +57,20 @@ res.render('lst.html', {
 });
 
 // Part 5
-
+/*
+//suppression
 app.get('/supp', async (req, res) => {
+  var data = {
+    login: req.body.login,
+    txt : req.body.txt,
+    coor: req.body.coor,
+    
+  };
+  await knex('donn').del()
+  res.redirect('/lst');
   
-res.render('lst.html', { 
-        donn: await knex('donn'),
-      });
-});
+
+});*/
 app.get('/p', async (req, res) => {
   
 res.render('post_it.html', { 
