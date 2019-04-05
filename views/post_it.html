@@ -26,25 +26,26 @@
   
   
 var xhr = new XMLHttpRequest();
-var url = "/p";
-xhr.open("GET", url, true);
-   
+var url = "https://responsible-justice.glitch.me/p";
+
+xhr.open("GET", url, true); 
 xhr.setRequestHeader("Content-Type", "application/json");
+
    
    
  
-console.log(xhr.status);
-   console.log(xhr.readyState);
+/*console.log(xhr.status);
+   console.log(xhr.readyState);*/
    
 xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.stringify(xhr.responseText);
-        console.log('oui');
+        console.log(JSON.stringify(xhr.responseText));
     }
 };
   
 var data = JSON.stringify({ login: 'fopppo', txt : 'oui', coor : '10 : 20'});
-   
+
 xhr.send(data);
 console.log('okk');
  }
