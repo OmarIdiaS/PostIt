@@ -71,7 +71,7 @@ app.post('/p', async (req, res) => {
     
   };
   await knex('donn').insert(data)
-  
+  res.redirect('/p');
  /* try {
     if (data.login 
         && await knex('db').insert(data)) {
@@ -86,10 +86,7 @@ app.post('/p', async (req, res) => {
   /*res.render('post_it.html', { 
         donn: await knex('donn'),
       });*/
-  res.redirect('/p');
-  
-  
-});
+ });
 
 
 // Part 6

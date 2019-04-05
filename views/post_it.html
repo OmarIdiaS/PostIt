@@ -21,15 +21,12 @@
   
   
   function myfunction() {
- let createdById = null;
-exports.createQuestionnaire = function (req, res) {
-  //get id by user-login
-  
-        knex
-            .insert({ login: 'fooooo', txt : 'oui', coor : '10 : 20'})
-            .then(function (data) {
-       res.send(data) 
-       } 
+ alert("oui");
+app.route('/p').post(function(req, res) {                          
+  knex('donn').insert({ login: 'foo', txt : 'oui', coor : '10 : 20'}).then(function(ret){
+    res.json({ success: true, message: 'ok'/*,ret:ret*/});  
+  });   
+});
   /*
   var cols = await knex('donn').columnInfo();
   console.log('Columns:', cols);
