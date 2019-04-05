@@ -3,7 +3,9 @@ dependencies:
   express: 4.16.4
   express-session: 1.15.6
   knex: 0.16.3
+  lib: 4.0.2
   nunjucks: 3.2.0
+  promisify-node: 0.5.0
   sqlite3: 4.0.6
 packages:
   /@babel/polyfill/7.4.0:
@@ -1298,6 +1300,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-MIrMr6C8SDo4Z7S28rlQYlHRuDU=
+  /lib/4.0.2:
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha512-x0BpB7/oEoqPzV3j6mZLBw7c3zXqbQV5GzhudDBkD1qCbmBMm26bpXBr+7bjs1OuUNXdjwPG5gCmKnyUZM8/IQ==
   /liftoff/2.5.0:
     dependencies:
       extend: 3.0.2
@@ -1505,6 +1513,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-TwWAOZb0j7e9eGaf9esRx3ZcLaE5tQ2lvYy1pb5IAaG1a2e2Kv5Lms1Y4hpj+ciXJRofIxxlt5haeQ/2ANeE0Q==
+  /nodegit-promise/4.0.0:
+    dependencies:
+      asap: 2.0.6
+    dev: false
+    resolution:
+      integrity: sha1-VyKxhPLfcycWEGSnkdLoQskWezQ=
   /nopt/4.0.1:
     dependencies:
       abbrev: 1.1.1
@@ -1750,6 +1764,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-MtEC1TqN0EU5nephaJ4rAtThHtC86dNN9qCuEhtshvpVBkAW5ZO7BASN9REnF9eoXGcRub+pFuKEpOHE+HbEMw==
+  /promisify-node/0.5.0:
+    dependencies:
+      nodegit-promise: 4.0.0
+      object-assign: 4.1.1
+    dev: false
+    resolution:
+      integrity: sha512-GR2E4qgCoKFTprhULqP2OP3bl8kHo16XtnqtkHH6be7tPW1yL6rXd15nl3oV2sLTFv1+j6tqoF69VVpFtJ/j+A==
   /proxy-addr/2.0.4:
     dependencies:
       forwarded: 0.1.2
@@ -2430,5 +2451,7 @@ specifiers:
   express: ^4.16.4
   express-session: ^1.15.6
   knex: ^0.16.3
+  lib: ^4.0.2
   nunjucks: ^3.2.0
+  promisify-node: ^0.5.0
   sqlite3: ^4.0.6
