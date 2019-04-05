@@ -3,12 +3,14 @@ var app = express();
 var bodyP = require('body-parser');
 var session = require('express-session');
 
+
 app.use('/public', express.static('public'));
 app.use(bodyP.urlencoded({ extended: false }));
 app.use(session({
     secret: '12345',
     resave: false,
     saveUninitialized: false,
+    
 }));
 
 var nunjucks = require('nunjucks');
@@ -24,6 +26,7 @@ var knex = require('knex')({
     },
     debug: true,
 });
+
 
 // Part 4
 /*
@@ -70,9 +73,11 @@ app.post('/p', async (req, res) => {
     coor: req.body.coor,
     
   };
+  
+  
   await knex('donn').insert(data)
   
-
+  
   res.redirect('/p');
  /* try {
     if (data.login 
