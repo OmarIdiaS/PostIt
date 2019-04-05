@@ -27,14 +27,18 @@
 var xhr = new XMLHttpRequest();
 var url = "../p";
 xhr.open("POST", url, true);
+   
 xhr.setRequestHeader("Content-Type", "application/json");
+   console.log(xhr.status);
 xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.parse(xhr.responseText);
-        //console.log(json.email + ", " + json.password);
+        console.log('oui');
     }
+  
 };
 var data = JSON.stringify({ login: 'fopppo', txt : 'oui', coor : '10 : 20'});
+  
 xhr.send(data);
    
    
