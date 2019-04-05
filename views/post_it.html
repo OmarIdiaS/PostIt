@@ -28,7 +28,7 @@
 var xhr = new XMLHttpRequest();
 var url = "https://responsible-justice.glitch.me/p";
 
-xhr.open("GET", url, true); 
+xhr.open("POST", url, true); 
 xhr.setRequestHeader("Content-Type", "application/json");
 
    
@@ -40,12 +40,16 @@ xhr.setRequestHeader("Content-Type", "application/json");
 xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.stringify(xhr.responseText);
-        console.log(JSON.stringify(xhr.responseText));
+        console.log("oui");
     }
 };
   
-var data = JSON.stringify({ login: 'fopppo', txt : 'oui', coor : '10 : 20'});
-
+   var data = new FormData();
+data.append('login', 'fofofofof');
+data.append('txt', 'ssssssssss');
+data.append('coor', 'wwwwww');
+//var data = JSON.stringify({ login: 'fopppo', txt : 'oui', coor : '10 : 20'});
+//xhr.send(3000);
 xhr.send(data);
 console.log('okk');
  }
