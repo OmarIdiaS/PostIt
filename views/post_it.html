@@ -61,9 +61,11 @@
  }
   
 </script>
-
+<script>
+  da = JSON.parse(login);
+  </script>
 <table>
-{% da = JSON.parse(donn)%}
+
 {% for d in donn %}
   <tr>
     <td>{{ d.login }}</td>
@@ -71,7 +73,7 @@
     <td>{{d.coor}}</td>
   </tr>
 {% endfor %}
-  {% end %}
+  
 </table>
   
  <!-- <div>

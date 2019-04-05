@@ -58,7 +58,14 @@ res.render('lst.html', {
 
 // Part 5
 
+app.get('/supp', async (req, res) => {
+  
+res.render('lst.html', { 
+        donn: await knex('donn'),
+      });
+});
 app.get('/p', async (req, res) => {
+  
 res.render('post_it.html', { 
         donn: await knex('donn'),
       });
@@ -81,6 +88,7 @@ app.post('/p', async (req, res) => {
   };
   
   try {
+    
     if (await knex('donn').insert(data)) {
       res.redirect('/p');
     } 
