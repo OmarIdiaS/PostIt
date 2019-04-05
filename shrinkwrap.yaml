@@ -6,6 +6,7 @@ dependencies:
   lib: 4.0.2
   nunjucks: 3.2.0
   promisify-node: 0.5.0
+  sinon-as-promised: 4.0.3
   sqlite3: 4.0.6
 packages:
   /@babel/polyfill/7.4.0:
@@ -419,6 +420,15 @@ packages:
     dev: false
     resolution:
       integrity: sha1-naHpgOO9RPxck79as9ozeNheRms=
+  /create-thenable/1.0.2:
+    dependencies:
+      object.omit: 2.0.1
+      unique-concat: 0.2.2
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-4gMXIMzJV12M+jH1wUbnYqgMBTQ=
   /dashdash/1.14.1:
     dependencies:
       assert-plus: 1.0.0
@@ -739,6 +749,14 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-gQaNKVqBQuwKxybG4iAMMPttXoA=
+  /for-own/0.1.5:
+    dependencies:
+      for-in: 1.0.2
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-UmXGgaTylNq78XyVCbZ2OqhFEM4=
   /for-own/1.0.0:
     dependencies:
       for-in: 1.0.2
@@ -1480,6 +1498,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-fpoe2T0RbHwBTBUOftAfBPaDEi06ufaUai0mE6Yn1kacc3SnTErfb/h+X94VXzI64rKFHYImXSvdwGGCmwOqCA==
+  /native-promise-only/0.8.1:
+    dev: false
+    resolution:
+      integrity: sha1-IKMYwwy0X3H+et+/eyHJnBRy7xE=
   /needle/2.2.4:
     dependencies:
       debug: 2.6.9
@@ -1630,6 +1652,15 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-z4Plncj8wK1fQlDh94s7gb2AHTc=
+  /object.omit/2.0.1:
+    dependencies:
+      for-own: 0.1.5
+      is-extendable: 0.1.1
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-Gpx0SCnznbuFjHbKNXmuKlTr0fo=
   /object.pick/1.3.0:
     dependencies:
       isobject: 3.0.1
@@ -2041,6 +2072,15 @@ packages:
     dev: false
     resolution:
       integrity: sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
+  /sinon-as-promised/4.0.3:
+    dependencies:
+      create-thenable: 1.0.2
+      native-promise-only: 0.8.1
+    dev: false
+    peerDependencies:
+      sinon: '1'
+    resolution:
+      integrity: sha1-wFRbFoX9gTWIpO1pcBJIftEdFRs=
   /snapdragon-node/2.1.1:
     dependencies:
       define-property: 1.0.0
@@ -2313,6 +2353,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-XHHDTLW61dzr4+oM0IIHulqhrqQ=
+  /unique-concat/0.2.2:
+    dev: false
+    resolution:
+      integrity: sha1-khD5vcqsxeHjkpSQ18AZ35bxhxI=
   /unpipe/1.0.0:
     dev: false
     engines:
@@ -2454,4 +2498,5 @@ specifiers:
   lib: ^4.0.2
   nunjucks: ^3.2.0
   promisify-node: ^0.5.0
+  sinon-as-promised: ^4.0.3
   sqlite3: ^4.0.6

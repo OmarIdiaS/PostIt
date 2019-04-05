@@ -36,7 +36,7 @@ xhr.setRequestHeader("Content-Type", "application/json");
    console.log(xhr.readyState);
    
    
-   
+
 xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.parse(xhr.responseText);
