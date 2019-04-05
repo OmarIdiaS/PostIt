@@ -71,6 +71,8 @@ app.post('/p', async (req, res) => {
     
   };
   await knex('donn').insert(data)
+  
+
   res.redirect('/p');
  /* try {
     if (data.login 
