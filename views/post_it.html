@@ -3,7 +3,7 @@
 
 {% block head %} 
     <link rel="stylesheet" href="public/style.css"> 
-    <script src="dbinit.js" defer></script>
+    
 
 {% endblock %}
 
@@ -17,14 +17,44 @@
 </form>
 <script>
     	
+  var knex = require('knex')({
+    client: 'sqlite3',
+    connection: {
+        filename: ".data/db.sqlite3"
+    },
+    debug: true,
+});
 
-  document.getElementById("post_it").ondblclick = function() {myFunction()};
-    function myFunction() {
+
+
+ document.getElementById("post_it").ondblclick = function() {init()};
+  
+  
+  async function init() {
+  
+  alert("oui");/*
+  var cols = await knex('donn').columnInfo();
+  console.log('Columns:', cols);
+  
+  await knex('donn').insert({ login: 'foo', txt : 'oui', coor : '10 : 20'});
+  await knex('donn').insert({ login: 'foo', txt : 'ouiiiiii', coor : '1000000000 : 20'});
+  
+  
+  
+  
+  var rows = await knex('donn');
+  console.log('Rows:', rows);
+
+  await knex.destroy();
+}
+
+   /* function myFunction() {
 	    var x = event.clientX ; 
 	    var y = event.clientY; 
 	    var coor = "X :" + x + " Y :"  + y ; 
-      
-   
+      alert("vasy"); 
+   data.setIntent("login: 'req.body.login', txt : 'req.body.txt',  coor: 'o' ");
+    await knex('donn').insert(data) ; 
 
 
        
