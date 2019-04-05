@@ -24,16 +24,29 @@
  function myfunction() {
 //     alert("oui");
   
-   
+  
 var xhr = new XMLHttpRequest();
 var url = "../p";
-xhr.open("POST", url, true);
+//xhr.open("POST", url, true);
    
-xhr.setRequestHeader("Content-Type", "application/json");
+//xhr.setRequestHeader("Content-Type", "application/json");
    
-   console.log(xhr.status);
+   /*console.log(xhr.status);
    xhr.readyState
-   console.log(xhr.readyState);
+   console.log(xhr.readyState);*/
+   
+   console.log('UNSENT: ', xhr.status);
+
+xhr.open('GET', '/p');
+console.log('OPENED: ', xhr.status);
+
+xhr.onprogress = function () {
+  console.log('LOADING: ', xhr.status);
+};
+
+xhr.onload = function () {
+  console.log('DONE: ', xhr.status);
+};
    
    
 
@@ -45,13 +58,7 @@ xhr.onreadystatechange = function () {
   
 };
 var data = JSON.stringify({ login: 'fopppo', txt : 'oui', coor : '10 : 20'});
-  
 xhr.send(data);
-   
-   
-  
-
-  
 }
 </script>
 

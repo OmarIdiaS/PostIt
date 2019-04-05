@@ -75,21 +75,20 @@ app.post('/p', async (req, res) => {
   };
   
   
-  await knex('donn').insert(data)
+ // await knex('donn').insert(data)
   
   
-  res.redirect('/p');
- /* try {
-    if (data.login 
-        && await knex('db').insert(data)) {
-      res.redirect('/');
+ // res.redirect('/p');
+  try {
+    if (await knex('donn').insert(data)) {
+      res.redirect('/p');
     } 
   } catch (err) {
     if (err.code == 'SQLITE_CONSTRAINT') {
       console.error(err);
       res.status(500).send('Error');
     }
-  }*/
+  }
   /*res.render('post_it.html', { 
         donn: await knex('donn'),
       });*/
