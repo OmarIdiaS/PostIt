@@ -5,7 +5,8 @@ var session = require('express-session');
 
 
 app.use('/public', express.static('public'));
-app.use(bodyP.urlencoded({ extended: false }));
+//app.use(bodyP.urlencoded({ extended: true }));
+app.use(bodyP.json());
 app.use(session({
     secret: '12345',
     resave: false,

@@ -22,27 +22,17 @@
   
   
  function myfunction() {
-//     alert("oui");
-  
-  
-var xhr = new XMLHttpRequest();
-var url = "https://responsible-justice.glitch.me/p";
-
-xhr.open("POST", url, true); 
-
+    var xhr = new XMLHttpRequest();
+    var url = "https://responsible-justice.glitch.me/p";
+    xhr.open("POST", url, true); 
 
    
-   
- 
-/*console.log(xhr.status);
-   console.log(xhr.readyState);*/
-   
-xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.stringify(xhr.responseText);
         console.log("oui");
-    }
-};
+      }
+    };
   
 var data = { login: 'fopppo', txt : 'oui', coor : '10 : 20'};
 xhr.setRequestHeader("Content-Type", "application/json");
