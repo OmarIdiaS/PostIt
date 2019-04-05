@@ -22,6 +22,26 @@
   
   
  function myfunction() {
+   
+   // Coordonnees
+    var x = event.clientX ; 
+	  var y = event.clientY; 
+	  var coor = "X :" + x + " Y :"  + y ;
+  
+   // Date
+   var d = new Date(); 
+	
+	var j = d.getDate(); 
+	var mois = d.getMonth() + 1; 
+	var annee = d.getFullYear(); 
+	var h = d.getHours(); 
+	var m = d.getMinutes();
+   var date = j+"/"+mois+"/"+annee+"  "+h+":"+m ; 
+   
+   //TEXTE
+   
+   var texte = prompt("Saisir votre texte ::");
+   
     var xhr = new XMLHttpRequest();
     var url = "https://responsible-justice.glitch.me/p";
     xhr.open("POST", url, true); 
@@ -30,19 +50,20 @@
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.stringify(xhr.responseText);
-        console.log("oui");
+        console.log("les donnees sont envoyer a la BD");
       }
     };
   
-var data = { login: 'fopppo', txt : 'oui', coor : '10 : 20'};
-xhr.setRequestHeader("Content-Type", "application/json");
-xhr.send(JSON.stringify(data));
-console.log('okk');
+  var data = { login: texte, txt : date, coor : coor};
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(JSON.stringify(data));
+  console.log('okk');
  }
   
 </script>
 
-<table>
+<!--<table>
+  
 {% for d in donn %}
   <tr>
     <td>{{ d.login }}</td>
@@ -50,7 +71,7 @@ console.log('okk');
     <td>{{d.coor}}</td>
   </tr>
 {% endfor %}
-</table>
+</table>-->
   
   
   <div class="message">
