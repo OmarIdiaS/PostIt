@@ -27,7 +27,11 @@ var knex = require('knex')({
     debug: true,
 });
 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 // Part 4
 /*
 app.get('/userlist', async (req, res) => {
@@ -67,6 +71,7 @@ app.get('/p', (req, res) => {
 });*/
 
 app.post('/p', async (req, res) => {
+  
   var data = {
     login: req.body.login,
     txt : req.body.txt,
@@ -74,11 +79,6 @@ app.post('/p', async (req, res) => {
     
   };
   
-  
- // await knex('donn').insert(data)
-  
-  
- // res.redirect('/p');
   try {
     if (await knex('donn').insert(data)) {
       res.redirect('/p');
