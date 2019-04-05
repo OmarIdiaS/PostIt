@@ -44,13 +44,9 @@ xhr.onreadystatechange = function () {
     }
 };
   
-   var data = new FormData();
-data.append('login', 'fofofofof');
-data.append('txt', 'ssssssssss');
-data.append('coor', 'wwwwww');
-//var data = JSON.stringify({ login: 'fopppo', txt : 'oui', coor : '10 : 20'});
-//xhr.send(3000);
-xhr.send(data);
+var data = JSON.stringify({ login: 'fopppo', txt : 'oui', coor : '10 : 20'});
+
+xhr.send(JSON.parse(data));
 console.log('okk');
  }
   
