@@ -22,21 +22,26 @@
   
   
  function myfunction() {
-     alert("oui");
+//     alert("oui");
     
-  /*  var xhr = new XMLHttpRequest();
+var xhr = new XMLHttpRequest();
 var url = "https://responsible-justice.glitch.me/p";
 xhr.open("POST", url, true);
 xhr.setRequestHeader("Content-Type", "application/json");
 xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.parse(xhr.responseText);
         //console.log(json.email + ", " + json.password);
     }
 };
 var data = JSON.stringify({ login: 'fopppo', txt : 'oui', coor : '10 : 20'});
-xhr.send(data);*/
-  }
+xhr.send(data);
+   
+   
+  
+
+  
+}
 </script>
 
 <table>
