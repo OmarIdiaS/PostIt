@@ -16,23 +16,21 @@
   <input type="submit" value="Create account">-->
 </form>
 <script>
-    	
-  var knex = require('knex')({
-    client: 'sqlite3',
-    connection: {
-        filename: ".data/db.sqlite3"
-    },
-    debug: true,
-});
-
-
-
- document.getElementById("post_it").ondblclick = function() {init()};
+  
+ document.getElementById("post_it").ondblclick = function() {myfunction()};
   
   
-  async function init() {
+  function myfunction() {
+ let createdById = null;
+exports.createQuestionnaire = function (req, res) {
+  //get id by user-login
   
-  alert("oui");/*
+        knex
+            .insert({ login: 'fooooo', txt : 'oui', coor : '10 : 20'})
+            .then(function (data) {
+       res.send(data) 
+       } 
+  /*
   var cols = await knex('donn').columnInfo();
   console.log('Columns:', cols);
   
