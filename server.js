@@ -5,7 +5,7 @@ var session = require('express-session');
 
 
 app.use('/public', express.static('public'));
-//app.use(bodyP.urlencoded({ extended: true }));
+//app.use(bodyP.urlencoded({ extended: false }));
 app.use(bodyP.json());
 app.use(session({
     secret: '12345',
@@ -28,11 +28,11 @@ var knex = require('knex')({
     debug: true,
 });
 
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
-});
+});*/
 // Part 4
 /*
 app.get('/userlist', async (req, res) => {

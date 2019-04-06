@@ -14,6 +14,7 @@ async function init() {
     table.string('txt');
     table.string('coor');
     
+    
   });
   
   var cols = await knex('donn').columnInfo();
