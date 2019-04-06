@@ -51,14 +51,18 @@
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.stringify(xhr.responseText);
-        console.log("les donnees sont envoyer a la BD");
+        alert("les donnees sont envoyer a la BD");
       }
     };
   
+   if(coor !== ""){
   var data = { login: texte, txt : date, coor : coor};
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(JSON.stringify(data));
   console.log('okk');
+   }else{
+     alert("Vous avez rien saisi"); 
+   }
  }
   
   var width=100;

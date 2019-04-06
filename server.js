@@ -103,6 +103,7 @@ app.post('/p', async (req, res) => {
     if (err.code == 'SQLITE_CONSTRAINT') {
       console.error(err);
       res.status(500).send('Error');
+      res.redirect('/');
     }
   }
   /*res.render('post_it.html', { 
