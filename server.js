@@ -118,7 +118,7 @@ app.post('/suppr', async (req, res) => {
  try {
     
     if (await knex('donn').del()) {
-      res.redirect('/p');
+      res.redirect('/lst');
     } 
   } catch (err) {
     if (err.code == 'SQLITE_CONSTRAINT') {
