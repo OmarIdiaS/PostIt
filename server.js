@@ -114,15 +114,10 @@ res.render('post_it.html', {
 
 app.post('/suppr', async (req, res) => {
   
-  var data = {
-    login: req.body.login,
-    txt : req.body.txt,
-    coor: req.body.coor,
-  };
   
-  try {
+ try {
     
-    if (await knex('donn').delete(data)) {
+    if (await knex('donn').del()) {
       res.redirect('/p');
     } 
   } catch (err) {
