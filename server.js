@@ -77,13 +77,6 @@ res.render('post_it.html', {
         donn: await knex('donn'),
       });
 });
-/*
-app.get('/p', (req, res) => {
-  //res.render('post_it.html');
-  res.render('post_it.html', { 
-        donn: await knex('donn'),
-      });
-});*/
 
 app.post('/p', async (req, res) => {
   
@@ -97,6 +90,39 @@ app.post('/p', async (req, res) => {
   try {
     
     if (await knex('donn').insert(data)) {
+      res.redirect('/p');
+    } 
+  } catch (err) {
+    if (err.code == 'SQLITE_CONSTRAINT') {
+      console.error(err);
+      res.status(500).send('Error');
+      res.redirect('/');
+    }
+  }
+  /*res.render('post_it.html', { 
+        donn: await knex('donn'),
+      });*/
+ });
+
+
+app.get('/suppr', async (req, res) => {
+  
+res.render('post_it.html', { 
+        donn: await knex('donn'),
+      });
+});
+
+app.post('/suppr', async (req, res) => {
+  
+  var data = {
+    login: req.body.login,
+    txt : req.body.txt,
+    coor: req.body.coor,
+  };
+  
+  try {
+    
+    if (await knex('donn').delete(data)) {
       res.redirect('/p');
     } 
   } catch (err) {

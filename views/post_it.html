@@ -20,8 +20,28 @@
 <script>
   
  document.getElementById("post_it").ondblclick = function() {myfunction()};
+ document.getElementById("imgg").onclick = function() { suppression()}; 
+  
+  function suppression(){
+  
+    
+    var xhr = new XMLHttpRequest();
+    var url = "/suppr";
+    xhr.open("DELETE", url, true); 
+
+   
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        var json = JSON.stringify(xhr.responseText);
+      }
+    };
   
   
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(null);
+  
+   
+  }
  function myfunction() {
    
    // Coordonnees
@@ -52,6 +72,7 @@
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.stringify(xhr.responseText);
         alert("les donnees sont envoyer a la BD");
+        window.location.reload();
       }
     };
   
