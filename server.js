@@ -5,8 +5,8 @@ var session = require('express-session');
 
 
 app.use('/public', express.static('public'));
-//app.use(bodyP.urlencoded({ extended: false }));
-app.use(bodyP.json());
+app.use(bodyP.urlencoded({ extended: false }));
+//app.use(bodyP.json());
 app.use(session({
     secret: '12345',
     resave: false,
@@ -122,36 +122,30 @@ app.post('/suppr', async (req, res) => {
       });*/
  });
 
-app.get('/signin', (req, res) => {
-  res.render('signin.html');
-});
-
-
-
-app.post('/signin', async (req, res) => {
-  var data = {
-    login: req.body.login,
-    pass: req.body.password,
-    name: req.body.name,
-    x : req.body.x
-  };
-  try {
-    if (data.login 
-        && data.pass
-        && await knex('users').insert(data)) {
-      res.redirect('/p');
-    } else {
-      res.render('signin.html', { data: data, message: 'Bad data' });
-    }
-  } catch (err) {
-    if (err.code == 'SQLITE_CONSTRAINT') {
-      res.render('signin.html', { data: data, message: 'Login already taken' });
-    } else {
-      console.error(err);
-      res.status(500).send('Error');
-    }
+app.get('/usr', (req, res) => {
+  if (req.session.user) {
+    res.redirect('/userlist');
+  } else {
+    res.render('login.html');
   }
 });
+
+app.post('/usr', async (req, res) => {
+  var user = await knex('users').where({
+    login: req.body.login,
+    pass: req.body.password,
+  }).first();
+  if (user) {
+    req.session.user = user;
+    res.redirect('/userlist');
+  } else {
+    res.render('login.html', { 
+      login: req.body.login,
+      message: 'Wrong login or password',
+    });
+  }
+});
+
 
 app.get('/userlist', async (req, res) => {
   if (req.session.user) {
