@@ -28,49 +28,14 @@ var knex = require('knex')({
     debug: true,
 });
 
-/*app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});*/
-// Part 4
-/*
-app.get('/userlist', async (req, res) => {
-  if (req.session.user) {
-    try {
-      res.render('userlist.html', { 
-        users: await knex('users'),
-        current: req.session.user,
-      });
-    } catch (err) {
-      console.error(err);
-      res.status(500).send('Error');
-    }
-  } else {
-    res.redirect('/');
-  }
-});*/
+
 app.get('/lst', async (req, res) => {
 res.render('lst.html', { 
         donn: await knex('donn'),
       });
 });
 
-// Part 5
-/*
-//suppression
-app.get('/supp', async (req, res) => {
-  var data = {
-    login: req.body.login,
-    txt : req.body.txt,
-    coor: req.body.coor,
-    
-  };
-  await knex('donn').del()
-  res.redirect('/lst');
-  
 
-});*/
 app.get('/p', async (req, res) => {
   
 res.render('post_it.html', { 
@@ -133,37 +98,34 @@ app.post('/suppr', async (req, res) => {
  });
 
 
-// Part 6
-/*
-app.get('/', (req, res) => {
-  if (req.session.user) {
-    res.redirect('/userlist');
-  } else {
-    res.render('login.html');
-  }
-});
 
-app.post('/', async (req, res) => {
-  var user = await knex('users').where({
+
+app.post('/signin', async (req, res) => {
+  var data = {
     login: req.body.login,
     pass: req.body.password,
-  }).first();
-  if (user) {
-    req.session.user = user;
-    res.redirect('/userlist');
-  } else {
-    res.render('login.html', { 
-      login: req.body.login,
-      message: 'Wrong login or password',
-    });
+    name: req.body.name,
+    color1: req.body.color1,
+    color2: req.body.color2,
+    x : req.body.x
+  };
+  try {
+    if (data.login 
+        && data.pass
+        && await knex('users').insert(data)) {
+      res.redirect('/p');
+    } else {
+      res.render('signin.html', { data: data, message: 'Bad data' });
+    }
+  } catch (err) {
+    if (err.code == 'SQLITE_CONSTRAINT') {
+      res.render('signin.html', { data: data, message: 'Login already taken' });
+    } else {
+      console.error(err);
+      res.status(500).send('Error');
+    }
   }
 });
-
-app.get('/logout', (req, res) => {
-  req.session.user = null;
-  res.redirect('/');
-});
-*/
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
