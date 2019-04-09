@@ -1,0 +1,13 @@
+
+
+{% block title %}Welcome{% endblock %}
+
+{% block main %}
+<form method="post">
+  <input type="text" name="login" placeholder="login" value="{{ data.login }}">
+  <input type="password" name="password" placeholder="password">
+  <input type="submit" value="login">
+</form>
+
+<div>{{ message }}</div>
+{% endblock %}

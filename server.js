@@ -39,7 +39,7 @@ res.render('lst.html', {
 app.get('/p', async (req, res) => {
   
 res.render('post_it.html', { 
-        donn: await knex.raw(`SELECT * FROM donn WHERE login="omar"`),
+        donn: await knex.raw(`SELECT * FROM donn`),
       });
 });
 
@@ -108,8 +108,6 @@ app.post('/signin', async (req, res) => {
     login: req.body.login,
     pass: req.body.password,
     name: req.body.name,
-    color1: req.body.color1,
-    color2: req.body.color2,
     x : req.body.x
   };
   try {
@@ -129,6 +127,47 @@ app.post('/signin', async (req, res) => {
     }
   }
 });
+
+app.get('/userlist', async (req, res) => {
+  if (req.session.user) {
+    try {
+      res.render('userlist.html', { 
+        users: await knex('users'),
+        current: req.session.user,
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Error');
+    }
+  } else {
+    res.redirect('/');
+  }
+});
+
+app.get('/', (req, res) => {
+  if (req.session.user) {
+    res.redirect('/userlist');
+  } else {
+    res.render('login.html');
+  }
+});
+
+app.post('/', async (req, res) => {
+  var user = await knex('users').where({
+    login: req.body.login,
+    pass: req.body.password,
+  }).first();
+  if (user) {
+    req.session.user = user;
+    res.redirect('/userlist');
+  } else {
+    res.render('login.html', { 
+      login: req.body.login,
+      message: 'Wrong login or password',
+    });
+  }
+});
+
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
