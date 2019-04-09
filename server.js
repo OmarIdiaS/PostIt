@@ -29,6 +29,31 @@ var knex = require('knex')({
 });
 
 
+/*
+app.get('/', (req, res) => {
+  if (req.session.user) {
+    res.redirect('/userlist');
+  } else {
+    res.render('login.html');
+  }
+});
+
+app.post('/', async (req, res) => {
+  var user = await knex('users').where({
+    login: req.body.login,
+    pass: req.body.password,
+  }).first();
+  if (user) {
+    req.session.user = user;
+    res.redirect('/userlist');
+  } else {
+    res.render('login.html', { 
+      login: req.body.login,
+      message: 'Wrong login or password',
+    });
+  }
+});
+*/
 app.get('/lst', async (req, res) => {
 res.render('lst.html', { 
         donn: await knex('donn'),
@@ -144,29 +169,7 @@ app.get('/userlist', async (req, res) => {
   }
 });
 
-app.get('/', (req, res) => {
-  if (req.session.user) {
-    res.redirect('/userlist');
-  } else {
-    res.render('login.html');
-  }
-});
 
-app.post('/', async (req, res) => {
-  var user = await knex('users').where({
-    login: req.body.login,
-    pass: req.body.password,
-  }).first();
-  if (user) {
-    req.session.user = user;
-    res.redirect('/userlist');
-  } else {
-    res.render('login.html', { 
-      login: req.body.login,
-      message: 'Wrong login or password',
-    });
-  }
-});
 
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
