@@ -97,6 +97,9 @@ app.post('/suppr', async (req, res) => {
       });*/
  });
 
+app.get('/signin', (req, res) => {
+  res.render('signin.html');
+});
 
 
 
