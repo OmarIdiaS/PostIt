@@ -108,7 +108,7 @@ app.post('/p', async (req, res) => {
 app.get('/suppr', async (req, res) => {
   
 res.render('post_it.html', { 
-        donn: await knex('donn'),
+        donn: await knex('donn').del(),
       });
 });
 
