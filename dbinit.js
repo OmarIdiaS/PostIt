@@ -8,7 +8,7 @@ var knex = require('knex')({
 
 async function init() {
   
-  /*await knex.schema.dropTableIfExists('users');
+  await knex.schema.dropTableIfExists('users');
 
   
 
@@ -29,7 +29,7 @@ async function init() {
   console.log('Rows:', rows);
 
   await knex.destroy();
-    */
+    
   await knex.schema.dropTableIfExists('donn');
 
   await knex.schema.createTable('donn', (table) => {
