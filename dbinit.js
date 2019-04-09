@@ -31,8 +31,8 @@ async function init() {
   await knex('users').insert({ login: 'bar', pass: 'superman', name: 'Bar' });
   */
   
-  await knex.raw(`insert into users values ('foo', '12345', 'admin')`)
-  await knex.raw(`insert into  donn ('foo', 'txt', 'coor')`)
+  await knex.raw(`insert into users values ('foo', '12345', 'admin')`);
+  await knex.raw(`insert into  donn ('foo', 'txt', 'coor')`);
   
   /*var rows = await knex('users');
   console.log('Rows:', rows);
