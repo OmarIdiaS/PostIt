@@ -74,7 +74,7 @@ app.get('/supp', async (req, res) => {
 app.get('/p', async (req, res) => {
   
 res.render('post_it.html', { 
-        donn: await knex('donn'),
+        donn: await knex.raw(`SELECT * FROM donn WHERE login="omar"`),
       });
 });
 
