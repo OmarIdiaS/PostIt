@@ -171,10 +171,7 @@ app.post('/signin', async (req, res) => {
   var data = {
     login: req.body.login,
     pass: req.body.password,
-    name: req.body.name,
-    color1: req.body.color1,
-    color2: req.body.color2,
-    x : req.body.x
+    name: req.body.name
   };
   try {
     if (data.login 
