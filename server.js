@@ -98,7 +98,7 @@ app.post('/p', async (req, res) => {
 app.get('/suppr', async (req, res) => {
   
 res.render('post_it.html', { 
-        donn: await knex('donn').del(),
+        donn: await knex('donn'),
       });
 });
 
@@ -106,7 +106,7 @@ app.post('/suppr', async (req, res) => {
   
   
  try {
-   if (await knex('donn').where({ id: 6 }).where('activated', false).del()) {
+   if (await knex('donn').where({ id: 13 }).del()) {
       res.redirect('/lst');
     } 
   } catch (err) {
