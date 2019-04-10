@@ -20,7 +20,9 @@
 <script>
   
  document.getElementById("post_it").ondblclick = function() {myfunction()};
- document.getElementById("imgg").onclick = function() { suppression()}; 
+  {% for d in donn %}
+ document.getElementById("{{d.id}}").onclick = function() { suppression()}; 
+   {% endfor %}
   
   function suppression(){
   

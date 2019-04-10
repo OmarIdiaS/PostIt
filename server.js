@@ -106,8 +106,7 @@ app.post('/suppr', async (req, res) => {
   
   
  try {
-    
-    if (await knex('donn').del()) {
+   if (await knex('donn').where({ id: 6 }).where('activated', false).del()) {
       res.redirect('/lst');
     } 
   } catch (err) {
