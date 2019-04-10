@@ -20,17 +20,18 @@
 <script>
   
  document.getElementById("post_it").ondblclick = function() {myfunction()};
-  document.getElementById("imgg").onclick = function() { s()}; 
+  document.getElementById("15").onclick = function() { s()};
+  function s(){alert("oui");}
+  //document.getElementById("{{d.id}}").onclick = function() { suppression()}; 
   {% for d in donn %}
- document.getElementById("{{d.id}}").onclick = function() { suppression()}; 
-   
-   
-   function s(){alert("oui");}
+ 
+   //JSON.parse(alert("oui")); 
+   JSON.parse(document.getElementById({{d.id}}).onclick = alert(oui));
    
    {% endfor %}
   
-  function suppression(){
-  
+ function suppression(){
+  alert('oui');
     
     var xhr = new XMLHttpRequest();
     var url = "https://responsible-justice.glitch.me/suppr";
@@ -147,7 +148,6 @@
     <td>{{d.txt}}</td>
     <td>{{d.coor}}</td>
     <td>{{d.id}}</td>
-    
     <td><img id="{{d.id}}" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"/></td>
 
   </tr>
