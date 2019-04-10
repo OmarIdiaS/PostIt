@@ -21,8 +21,13 @@
   
  document.getElementById("post_it").ondblclick = function() {myfunction()};
   
- document.getElementById("img").onclick = function() { suppression()}; 
+  {% for d in donn %}
+ document.getElementById("{{d.id}}").onclick = function() { suppression()}; 
    
+   document.getElementById("15").onclick = function() { s()}; 
+   function s(){alert("oui");}
+   
+   {% endfor %}
   
   function suppression(){
   
@@ -141,8 +146,10 @@
     <td>{{ d.login }}</td>
     <td>{{d.txt}}</td>
     <td>{{d.coor}}</td>
-    <td>{{d.id}}</td>
-    <td><img id="img" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"/></td>
+    var x = {{d.id}}
+    <td>x</td>
+    
+    <td><img id="{{d.id}}" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"/></td>
 
   </tr>
 {% endfor %}
