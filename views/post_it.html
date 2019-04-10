@@ -26,8 +26,8 @@
   
   function suppression(){
   
-    alert("oui");
-    /*var xhr = new XMLHttpRequest();
+    
+    var xhr = new XMLHttpRequest();
     var url = "https://responsible-justice.glitch.me/suppr";
     
 
@@ -35,14 +35,15 @@
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.stringify(xhr.responseText);
-        
+        alert('oui');
+        window.location.reload();
       }
     };
   
-  xhr.open("DELETE", url, true); 
+  xhr.open("POST", url, true); 
     
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send();*/
+  xhr.send();
   
    
   }
