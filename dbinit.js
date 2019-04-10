@@ -17,11 +17,13 @@ async function init() {
     table.string('pass').notNullable();
     table.string('name');
     
+    
   });
   await knex.schema.createTable('donn', (table) => {
     table.string('login');
     table.string('txt');
     table.string('coor');  
+    table.increments();
   });
   /*
   var cols = await knex('users').columnInfo();
