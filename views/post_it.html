@@ -44,36 +44,14 @@
  //{% for d in donn %}
  
    //JSON.parse(alert("oui")); 
-  for(var i=15; i<18; ++i) {
+ /* for(var i=15; i<18; ++i) {
      JSON.parse(document.getElementById(i).onclick =function() {s()});
 
- }
+ }*/
    
  //  {% endfor %}
  function s(){alert("oui");}
- function suppression(){
-  alert('oui');
-    
-    var xhr = new XMLHttpRequest();
-    var url = "https://responsible-justice.glitch.me/suppr";
-    
-
-   
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-        var json = JSON.stringify(xhr.responseText);
-        alert('oui');
-        window.location.reload();
-      }
-    };
-  
-  xhr.open("POST", url, true); 
-    
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send();
-  
-   
-  }
+ 
  function myfunction() {
    
    // Coordonnees
@@ -114,6 +92,32 @@
   console.log('okk');
    
  }
+    
+    
+    function suppression(){
+  
+    
+    var xhr = new XMLHttpRequest();
+    var url = "https://responsible-justice.glitch.me/suppr";
+    
+
+   
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        var json = JSON.stringify(xhr.responseText);
+        alert('oui');
+        window.location.reload();
+      }
+    };
+   
+   xhr.open("POST", url, true); 
+   var data = { login: "", txt : "10/4/2019 7:48", coor : "X :327 Y :191", id = 15};
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(JSON.stringify(data));
+     // xhr.send();
+   
+  }
+    
   
   var width=100;
  var difference=2;
