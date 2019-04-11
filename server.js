@@ -73,7 +73,9 @@ app.post('/p', async (req, res) => {
   var data = {
     login: req.body.login,
     txt : req.body.txt,
-    coor: req.body.coor,
+    coor:req.body.coor,
+    useer : req.session.user,
+    
     
   };
   

@@ -18,11 +18,13 @@ async function init() {
     table.string('name');
     
     
+    
   });
   await knex.schema.createTable('donn', (table) => {
     table.string('login');
     table.string('txt');
-    table.string('coor');  
+    table.string('coor'); 
+    table.string('useer');
     table.increments();
   });
   /*
@@ -34,7 +36,7 @@ async function init() {
   */
   
   await knex.raw(`insert into users values ('foo', '12345', 'admin')`);
-  await knex.raw(`insert into  donn ('foo', 'txt', 'coor')`);
+  await knex.raw(`insert into  donn ('foo', 'txt', 'coor','omar')`);
   
   /*var rows = await knex('users');
   console.log('Rows:', rows);
