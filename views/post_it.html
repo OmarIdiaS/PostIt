@@ -17,19 +17,40 @@
   <input type="submit" value="Create account">-->
   <img src = "https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" id="imgg" />
 </form>
-<script>
+
+
+<table>
+
+{% for d in donn %}
+  <tr>
+    <td>{{ d.login }}</td>
+    <td>{{d.txt}}</td>
+    <td>{{d.coor}}</td>
+    <td>{{d.id}}</td>
+    <td><img id="{{d.id}}" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"/></td>
+
+  </tr>
+{% endfor %}
+  
+</table>
+  
+  <script>
   
  document.getElementById("post_it").ondblclick = function() {myfunction()};
-  //document.getElementById(15).onclick = function() { s()};
-  function s(){alert("oui");}
+ 
+    JSON.parse(document.getElementById(16).onclick = function() { s()});
+  
   //document.getElementById("{{d.id}}").onclick = function() { suppression()}; 
-  {% for d in donn %}
+ {% for d in donn %}
  
    //JSON.parse(alert("oui")); 
-   JSON.parse(document.getElementById({{d.id}}).onclick = alert(oui));
+//  for(var i=0; i<100; i++) {
+     JSON.parse(document.getElementById(15).onclick =function {s()});
+
+ // }
    
    {% endfor %}
-  
+ function s(){alert("oui");}
  function suppression(){
   alert('oui');
     
@@ -139,21 +160,6 @@
  }
   
 </script>
-
-<table>
-
-{% for d in donn %}
-  <tr>
-    <td>{{ d.login }}</td>
-    <td>{{d.txt}}</td>
-    <td>{{d.coor}}</td>
-    <td>{{d.id}}</td>
-    <td><img id="{{d.id}}" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"/></td>
-
-  </tr>
-{% endfor %}
-  
-</table>
   
  <!-- <div>
     {% for d in donn %}
