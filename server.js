@@ -121,7 +121,7 @@ app.post('/suppr', async (req, res) => {
       });*/
  });
 
-app.get('/usr', (req, res) => {
+app.get('/', (req, res) => {
   if (req.session.user) {
     res.redirect('/p');
   } else {
@@ -129,7 +129,7 @@ app.get('/usr', (req, res) => {
   }
 });
 
-app.post('/usr', async (req, res) => {
+app.post('/', async (req, res) => {
   var user = await knex('users').where({
     login: req.body.login,
     pass: req.body.password,
