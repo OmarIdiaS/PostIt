@@ -137,7 +137,7 @@ app.post('/', async (req, res) => {
     pass: req.body.password,
   }).first();
   if (user) {
-    req.session.user = user;
+    req.session.user = req.body.login;
     res.redirect('/p');
   } else {
     res.render('login.html', { 
