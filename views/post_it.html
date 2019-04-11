@@ -9,22 +9,7 @@
 {% endblock %}
 
 {% block main %}
-<script>
-  //document.getElementById(1).onclick = function() {s()};
-  
-   JSON.parse(document.getElementById(1).onclick = function() { s()});
-  function s(){alert("oui");}
-  /*{% for d in donn %}
-    JSON.parse(document.getElementById(1).onclick = function() {s()});
 
- //  JSON.parse(document.getElementById({{d.id}}).onclick = function(){alert("oui");});
-   console.log({{d.id}});
-   
-   
-  {% endfor %}*/
-   
-
-</script>
 
 <body id="post_it"> 
 <table>
@@ -32,8 +17,8 @@
   <td>Welcome {{current}}</td>
     </tr>
   
+</table>
 <table>
-
 {% for d in donn %}
   <tr>
     <td>{{ d.login }}</td>
@@ -52,7 +37,8 @@
   
  document.getElementById("post_it").ondblclick = function() {myfunction()};
  
-   // JSON.parse(document.getElementById(16).onclick = function() { s()});
+    JSON.parse(document.getElementById(1).onclick = function() { s()});
+    //JSON.parse(document.getElementById(2).onclick = function() { s()});
    // JSON.parse(document.getElementById(17).onclick = function() { s()});
   //document.getElementById("{{d.id}}").onclick = function() { suppression()}; 
  
@@ -182,6 +168,6 @@
   
   <div class="message">
   {{ message }}
-</div>
+  </div>
 </body>
 {% endblock %}
