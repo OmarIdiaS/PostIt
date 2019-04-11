@@ -18,7 +18,7 @@
     </tr>
   
 </table>
-<table>
+<!--<table>
 {% for d in donn %}
   <tr>
     <td>{{ d.login }}</td>
@@ -31,18 +31,39 @@
   </tr>
 {% endfor %}
   
-</table>
+</table>-->
   
   <script>
   
  document.getElementById("post_it").ondblclick = function() {myfunction()};
  
-    JSON.parse(document.getElementById(1).onclick = function() { s()});
+  //  JSON.parse(document.getElementById(1).onclick = function() { s()});
     //JSON.parse(document.getElementById(2).onclick = function() { s()});
    // JSON.parse(document.getElementById(17).onclick = function() { s()});
   //document.getElementById("{{d.id}}").onclick = function() { suppression()}; 
  
  function s(){alert("oui");}
+    
+    
+var t = document.createElement('table'); 
+	t.setAttribute("id", "myTable" ); 
+	
+	document.body.appendChild(t); 
+	
+
+	var tr = document.createElement('tr'); 
+	tr.setAttribute("id","myTr");
+
+	var td = document.createElement('td'); 
+	td.setAttribute("id","myTr");	
+	
+	
+	
+	//{% for d in donn %}
+	td.appendChild(document.createTextNode("hy"));
+	td.appendChild(document.createElement("br")); 
+	
+	//{% endfor%}
  /*function suppression(){
   
     
