@@ -80,7 +80,9 @@ app.post('/suppr', async (req, res) => {
   
   
  try {
-   if (await knex('donn').del()) {
+   if (await knex('donn')
+       .where(useer : req.session.user)
+       del()) {
       res.redirect('/lst');
     } 
   } catch (err) {
