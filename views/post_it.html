@@ -48,22 +48,27 @@
 var t = document.createElement('table'); 
 	t.setAttribute("id", "myTable" ); 
 	
-	document.body.appendChild(t); 
+
+    
+		document.body.appendChild(t); 
+	 
+	
 	
 
 	var tr = document.createElement('tr'); 
-	tr.setAttribute("id","myTr");
-
-	var td = document.createElement('td'); 
-	td.setAttribute("id","myTr");	
+	tr.setAttribute("id","myTr"); 
 	
 	
 	
-	//{% for d in donn %}
-	td.appendChild(document.createTextNode("hy"));
+	var td = document.createElement('td');
+	
+	for(var i =0; i<6 ; i++) {
+	td.appendChild(document.createTextNode("a"));
 	td.appendChild(document.createElement("br")); 
-	
-	//{% endfor%}
+  }
+ 
+	document.getElementById("myTr").appendChild(td); 
+    document.body.appendChild(t); 
  /*function suppression(){
   
     
