@@ -18,7 +18,7 @@
     </tr>
   
 </table>
-<!--<table>
+<table>
 {% for d in donn %}
   <tr>
     <td>{{ d.login }}</td>
@@ -26,12 +26,12 @@
     <td>{{d.coor}}</td>
     <td>{{d.id}}</td>
     <td>{{d.useer}}</td>
-    <td><img id="{{d.id}}" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"/></td>
+    <td><img  onclick="function(){alert("oui");}" id="{{d.id}}" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" /></td>
 
   </tr>
 {% endfor %}
   
-</table>-->
+</table>
   
   <script>
   
@@ -44,31 +44,8 @@
  
  function s(){alert("oui");}
     
-    
-var t = document.createElement('table'); 
-	t.setAttribute("id", "myTable" ); 
-	
 
     
-		document.body.appendChild(t); 
-	 
-	
-	
-
-	var tr = document.createElement('tr'); 
-	tr.setAttribute("id","myTr"); 
-	
-	
-	
-	var td = document.createElement('td');
-	
-	for(var i =0; i<6 ; i++) {
-	td.appendChild(document.createTextNode("a"));
-	td.appendChild(document.createElement("br")); 
-  }
- 
-	document.getElementById("myTr").appendChild(td); 
-    document.body.appendChild(t); 
  /*function suppression(){
   
     
