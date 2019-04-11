@@ -10,16 +10,18 @@
 
 {% block main %}
 <script>
-  {% for d in donn %}
- 
-   
+  //document.getElementById(1).onclick = function() {s()};
+  
+   JSON.parse(document.getElementById(1).onclick = function() { s()});
+  function s(){alert("oui");}
+  /*{% for d in donn %}
+    JSON.parse(document.getElementById(1).onclick = function() {s()});
 
-    JSON.parse(document.getElementById({{d.id}}).onclick = alert("oui"));
-    
-
- console.log({{d.id}});
+ //  JSON.parse(document.getElementById({{d.id}}).onclick = function(){alert("oui");});
+   console.log({{d.id}});
    
-  {% endfor %}
+   
+  {% endfor %}*/
    
 
 </script>
