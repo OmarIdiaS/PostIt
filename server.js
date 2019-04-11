@@ -29,31 +29,6 @@ var knex = require('knex')({
 });
 
 
-/*
-app.get('/', (req, res) => {
-  if (req.session.user) {
-    res.redirect('/userlist');
-  } else {
-    res.render('login.html');
-  }
-});
-
-app.post('/', async (req, res) => {
-  var user = await knex('users').where({
-    login: req.body.login,
-    pass: req.body.password,
-  }).first();
-  if (user) {
-    req.session.user = user;
-    res.redirect('/userlist');
-  } else {
-    res.render('login.html', { 
-      login: req.body.login,
-      message: 'Wrong login or password',
-    });
-  }
-});
-*/
 app.get('/lst', async (req, res) => {
 res.render('lst.html', { 
         donn: await knex('donn'),
@@ -65,6 +40,7 @@ app.get('/p', async (req, res) => {
   
 res.render('post_it.html', { 
         donn: await knex.raw(`SELECT * FROM donn`),
+        current: req.session.user,
       });
 });
 
@@ -75,9 +51,7 @@ app.post('/p', async (req, res) => {
     txt : req.body.txt,
     coor:req.body.coor,
     useer : req.session.user,
-    
-    
-  };
+ };
   
   try {
     
@@ -91,9 +65,7 @@ app.post('/p', async (req, res) => {
       res.redirect('/');
     }
   }
-  /*res.render('post_it.html', { 
-        donn: await knex('donn'),
-      });*/
+  
  });
 
 
@@ -118,9 +90,7 @@ app.post('/suppr', async (req, res) => {
       res.redirect('/');
     }
   }
-  /*res.render('post_it.html', { 
-        donn: await knex('donn'),
-      });*/
+
  });
 
 app.get('/', (req, res) => {
