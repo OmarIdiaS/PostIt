@@ -76,13 +76,14 @@ res.render('post_it.html', {
       });
 });
 
-app.post('/suppr', async (req, res) => {
+/*app.post('/suppr', async (req, res) => {
   
   
  try {
    if (await knex('donn')
-       .where(useer : req.session.user)
-       del()) {
+       .where({useer : req.session.user})
+       .andWhere({txt : req.body.txt})
+       .del()) {
       res.redirect('/lst');
     } 
   } catch (err) {
@@ -94,6 +95,16 @@ app.post('/suppr', async (req, res) => {
   }
 
  });
+*/
+
+app.post('/suppr', async (req, res) => {
+await knex('donn')
+       .where({useer : req.session.user})
+       .andWhere({login : req.body.login})
+       .del();
+  
+  res.redirect('/p');
+});
 
 app.get('/', (req, res) => {
   if (req.session.user) {
