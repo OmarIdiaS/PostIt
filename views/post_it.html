@@ -9,6 +9,20 @@
 {% endblock %}
 
 {% block main %}
+<script>
+  {% for d in donn %}
+ 
+   
+
+    JSON.parse(document.getElementById({{d.id}}).onclick = alert("oui"));
+    
+
+ console.log({{d.id}});
+   
+  {% endfor %}
+   
+
+</script>
 
 <body id="post_it"> 
 <table>
@@ -39,15 +53,7 @@
    // JSON.parse(document.getElementById(16).onclick = function() { s()});
    // JSON.parse(document.getElementById(17).onclick = function() { s()});
   //document.getElementById("{{d.id}}").onclick = function() { suppression()}; 
- //{% for d in donn %}
  
-   //JSON.parse(alert("oui")); 
- /* for(var i=15; i<18; ++i) {
-     JSON.parse(document.getElementById(i).onclick =function() {s()});
-
- }*/
-   
- //  {% endfor %}
  function s(){alert("oui");}
  /*function suppression(){
   
