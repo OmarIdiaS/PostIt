@@ -100,7 +100,7 @@ res.render('post_it.html', {
 app.post('/suppr', async (req, res) => {
 await knex('donn')
        .where({useer : req.session.user})
-       .andWhere({'txt' : req.body.txt})
+       .andWhere({txt : req.body.txtt})
        .del();
   
   res.redirect('/p');
