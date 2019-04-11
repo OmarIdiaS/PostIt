@@ -18,21 +18,26 @@
     </tr>
   
 </table>
+  
 <table>
+  
 {% for d in donn %}
+  <form action="/suppr" method="post">
   <tr>
+    
     <td>{{ d.login }}</td>
     <td>{{d.txt}}</td>
     <td>{{d.coor}}</td>
     <td>{{d.id}}</td>
     <td>{{d.useer}}</td>
   <!--  <td><a href = "/suppr"><img  id="{{d.id}}" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"  /><input type="submit"  class="submit" value="Delete"></a></td>-->
-    <td><form action="/suppr" method="post">
-      <a href="/" class="submit"> <input type="submit"  class="submit" value="Delete"></a>
-      </form></td>
+    <td>
+      <a href="/" class="submit" value="{{d.txt}}"> <input type="submit"  class="submit" value="Delete"></a>
+      </td>
   </tr>
+   </form>
 {% endfor %}
-  
+   
 </table>
   
   <script>
