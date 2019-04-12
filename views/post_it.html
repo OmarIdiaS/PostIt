@@ -46,38 +46,12 @@
   
  document.getElementById("post_it").ondblclick = function() {myfunction()};
  
-  //  JSON.parse(document.getElementById(1).onclick = function() { s()});
-    //JSON.parse(document.getElementById(2).onclick = function() { s()});
-   // JSON.parse(document.getElementById(17).onclick = function() { s()});
-  //document.getElementById("{{d.id}}").onclick = function() { suppression()}; 
  
  function s(){alert("oui");}
     
 
     
- /*function suppression(){
-  
-    
-    var xhr = new XMLHttpRequest();
-    var url = "https://responsible-justice.glitch.me/suppr";
-    
 
-   
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-        var json = JSON.stringify(xhr.responseText);
-        alert('oui');
-        window.location.reload();
-      }
-    };
-   
-   xhr.open("POST", url, true); 
- //  var data = { login: "", txt : "10/4/2019 7:48", coor : "X :327 Y :191", id = 15};
-  xhr.setRequestHeader("Content-Type", "application/json");
- // xhr.send(JSON.stringify(data));
-      xhr.send();
-   
-  }*/
     
  function myfunction() {
    
@@ -109,7 +83,7 @@
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.stringify(xhr.responseText);
         alert("les donnees sont envoyer a la BD");
-        window.location.reload();
+      location.reload(true);
       }
     };
   
