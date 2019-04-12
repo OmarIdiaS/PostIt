@@ -101,12 +101,14 @@ app.post('/suppr', async (req, res) => {
 await knex('donn')
        .where({useer : req.session.user})
        .andWhere({txt : req.body.txtt})
-       .andWhere({id : req.body.id})
        .del();
   
   res.redirect('/p');
 });
-
+app.post('/admindelete', async (req, res) => {
+      await knex('donn').where({useer : "guest"}).del(); 
+          
+}); 
 app.get('/', (req, res) => {
   if (req.session.user) {
     res.redirect('/p');
