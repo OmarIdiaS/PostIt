@@ -49,8 +49,8 @@
 </table>
   
   <script>
-  
- document.getElementById("post_it").ondblclick = function() {myfunction()};
+//setInterval(function(){ window.location.reload();}, 3000);
+    document.getElementById("post_it").ondblclick = function() {myfunction()};
  
  
  function s(){alert("oui");}
@@ -90,7 +90,8 @@
         var json = JSON.stringify(xhr.responseText);
         alert("les donnees sont envoyer a la BD");
         //window.setInterval(window.location.reload(),2)
-        setInterval(function(){ window.location.reload();}, 3000);
+        window.location.reload();
+        //setInterval(function(){ window.location.reload();}, 3000);
 
       //window.location.reload();
       }
