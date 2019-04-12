@@ -37,7 +37,7 @@
     <form action="/suppr" method="post">
     <td><textarea name="img"  style="display:none;">{{d.id}}</textarea></td>
     <td>{{d.useer}}</td>
-    <td><a href = "/" class="submit" ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Delete"></a></td>
+    <td><a href = "/" class="submit" ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Delete" ></a></td>
       <!--<td><a href = "/" class="submit" onclick=" prompt('oui')" value="{{d.login}}" ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Update"></a></td>-->
       </form>
     
@@ -89,8 +89,8 @@
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var json = JSON.stringify(xhr.responseText);
         alert("les donnees sont envoyer a la BD");
-        window.location = document.url;
-      window.location.reload();
+        wisetInterval(window.location.reload(),2)
+      //window.location.reload();
       }
     };
   
