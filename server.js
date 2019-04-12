@@ -189,11 +189,10 @@ app.get('/logout', (req, res) => {
 
 
 app.get('/:n', async (req, res) => {
-  
-  res.render('tabuser.html',{donn : await knex('donn')});
- /* res.render('tabuser.html', { 
-        donn: await knex.raw(`SELECT * FROM donn WHERE useer =`+req.params.n+`;`),
-      });*/
+  res.render('tabuser.html',
+             {donn : await knex('donn')
+              .where({useer : req.params.n})});
+ 
 });
 
 var listener = app.listen(process.env.PORT, function () {
