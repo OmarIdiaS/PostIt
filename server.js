@@ -189,11 +189,16 @@ app.get('/logout', (req, res) => {
 
 
 app.get('/:n', async (req, res) => {
-res.render('tabuser.html', { 
+  res.render('tabuser.html'); 
+  console.log("req.params.n");
+  await knex('donn')
+    .where({useer : req.params.n});
+/*res.render('tabuser.html', { 
    
-        donn: await knex.raw(`SELECT * FROM donn WHERE useer = req.param.n`),
+        donn: await knex.raw(`SELECT * FROM donn WHERE useer = {{req.params.n}}`),
         
-      });
+      });*/
+  
 });
 
 
