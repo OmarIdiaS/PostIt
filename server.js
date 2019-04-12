@@ -107,9 +107,10 @@ await knex('donn')
   res.redirect('/p');
 });
 app.post('/admindelete', async (req, res) => {
-      if(req.session.user == "guest")
-      await knex('donn').del(); 
-          
+  if(req.session.user == "guest"){
+    await knex('donn').del();
+  }
+    res.redirect('/p');
 }); 
 app.get('/', (req, res) => {
   if (req.session.user) {
