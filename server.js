@@ -100,7 +100,6 @@ res.render('post_it.html', {
 app.post('/suppr', async (req, res) => {
 await knex('donn')
        .where({useer : req.session.user})
-       .andWhere({txt : req.body.txtt})
        .andWhere({id : req.body.img})
        .del();
   
@@ -194,6 +193,18 @@ app.get('/:n', async (req, res) => {
               .where({useer : req.params.n})});
  
 });
+
+
+app.post('/modification', async (req, res) => {
+await knex('donn')
+       .where({useer : req.session.user})
+       .andWhere({txt : req.body.txtt})
+       .andWhere({id : req.body.img})
+       .update({txt : req.body.txt});
+  
+  res.redirect('/p');
+});
+
 
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);

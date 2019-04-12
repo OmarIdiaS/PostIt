@@ -29,9 +29,10 @@
  
   <tr>
     <td>{{ d.login }}</td>
-     <form action="/suppr" method="post">
+     
     <td>{{d.txt}}<textarea name="txtt"  style="display:none;">{{d.txt}}</textarea></td>
     <td>{{d.coor}}</td>
+    <form action="/suppr" method="post">
     <td><textarea name="img"  style="display:none;">{{d.id}}</textarea></td>
     <td>{{d.useer}}</td>
     <td><a href = "/" class="submit" ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Delete"></a></td>
