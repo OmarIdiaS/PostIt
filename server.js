@@ -192,7 +192,7 @@ app.get('/:n', async (req, res) => {
   
 res.render('tabuser.html', { 
         
-        donn: await knex.raw(`SELECT * FROM donn WHERE useer = {{req.params.n}} `),
+        donn: await knex.raw(`SELECT * FROM donn WHERE useer = {{req.param}}`),
         
       });
   
