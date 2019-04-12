@@ -190,7 +190,7 @@ app.get('/logout', (req, res) => {
 
 app.get('/:n', async (req, res) => {
 res.render('tabuser.html', { 
-        donn: await knex.raw(`SELECT * FROM donn where useer='$n'`),
+        donn: await knex.raw(`SELECT * FROM donn where useer=$n`),
         current: req.session.user,
       });
 });
