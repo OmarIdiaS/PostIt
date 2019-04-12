@@ -200,7 +200,8 @@ await knex('donn')
        .where({useer : req.session.user})
        .andWhere({txt : req.body.txtt})
        .andWhere({id : req.body.img})
-       .update({txt : "omar"});
+       .andWhere({login : req.body.login})
+       .update({login : "omar"});
   
   res.redirect('/p');
 });
