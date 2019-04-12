@@ -189,9 +189,9 @@ app.get('/logout', (req, res) => {
 
 
 app.get('/:n', async (req, res) => {
-  res.render('tabuser.html'); 
-  console.log("req.params.n");
-  await knex('donn')
+  //res.render('tabuser.html'); 
+  res.render(req.params.n); 
+  /*await knex('donn')
     .where({useer : req.params.n});
 /*res.render('tabuser.html', { 
    
