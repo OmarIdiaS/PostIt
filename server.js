@@ -201,7 +201,7 @@ await knex('donn')
        .andWhere({txt : req.body.txtt})
        .andWhere({id : req.body.img})
        .andWhere({login : req.body.login})
-       .update({login : "omar"});
+       .update({login : req.body.login});
   
   res.redirect('/p');
 });
