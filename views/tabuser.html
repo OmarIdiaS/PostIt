@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Post_it{% endblock %}
+
+{% block head %} 
+
+    <link rel="stylesheet" href="public/style.css"> 
+    
+
+{% endblock %}
+
+{% block main %}
+
+
+<body> 
+
+  
+   
+  
+  
+  
+  <div>
+    {% for d in donn %}
+    <p> {{ d.login }}</p>
+    <p> {{ d.txt }}</p>
+    <p> {{ d.coor }}</p>
+    {% endfor %}
+  </div>
+  
+  
+  <div class="message">
+  {{ message }}
+  </div>
+</body>
+{% endblock %}

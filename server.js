@@ -187,6 +187,16 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+
+app.get('/:n', async (req, res) => {
+res.render('tabuser.html', { 
+        donn: await knex.raw(`SELECT * FROM donn where useer='$n'`),
+        current: req.session.user,
+      });
+});
+
+
+
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
