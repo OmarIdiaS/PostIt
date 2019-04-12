@@ -101,6 +101,7 @@ app.post('/suppr', async (req, res) => {
 await knex('donn')
        .where({useer : req.session.user})
        .andWhere({txt : req.body.txtt})
+       .andWhere({id : req.body.id})
        .del();
   
   res.redirect('/p');

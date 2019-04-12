@@ -26,13 +26,11 @@
   <tr>
     <td>{{ d.login }}</td>
      <form action="/suppr" method="post">
-      
-    
     <td><textarea name="txtt"  style="display:none;">{{d.txt}}</textarea></td>
     <td>{{d.coor}}</td>
-    <td>{{d.id}}</td>
+    <td><textarea name="img"  style="display:none;">{{d.id}}</textarea></td>
     <td>{{d.useer}}</td>
-    <td><a href = "/"><img  id="{{d.id}}" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"  /><input type="submit"  class="submit" value="Delete"></a></td>
+    <td><a href = "/" class="submit" ><img   name = "id" id="{{d.id}}" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"  /><input type="submit"  class="submit" value="Delete"></a></td>
   </form>
       </tr>
    
