@@ -27,40 +27,12 @@ async function init() {
     table.string('useer');
     table.increments();
   });
-  /*
-  var cols = await knex('users').columnInfo();
-  console.log('Columns:', cols);
-  
-  await knex('users').insert({ login: 'foo', pass: '12345', name: 'Foo' });
-  await knex('users').insert({ login: 'bar', pass: 'superman', name: 'Bar' });
-  */
+
   
   await knex.raw(`insert into users values ('foo', '12345', 'admin')`);
   await knex.raw(`insert into  donn ('foo', 'txt', 'coor','omar')`);
   
-  /*var rows = await knex('users');
-  console.log('Rows:', rows);
-
-  await knex.destroy();
-    
-  
-
-  
-  
-  var cols = await knex('donn').columnInfo();
-  console.log('Columns:', cols);
-  
-  await knex('donn').insert({ login: 'foo', txt : 'oui', coor : '10 : 20'});
-  await knex('donn').insert({ login: 'foo', txt : 'ouiiiiii', coor : '1000000000 : 20'});
-  
-  
-  
-  
-  var rows = await knex('donn');
-  console.log('Rows:', rows);
-
-  await knex.destroy();*/
-  
+ 
 }
 init();
 

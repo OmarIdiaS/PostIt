@@ -26,7 +26,7 @@
 <table>
   
 {% for d in donn %}
- <tbody id="{{d.login}}" ondragstart = "dragStart(event)" ondragover = "allowDrop(event)" ondrop="drop(event)" >
+
   <tr>
     <!--<form action="/modification" method="post">-->
     <td>{{d.login}}<textarea name="login"  style="display:none;" >{{d.login}}</textarea></td>
@@ -48,7 +48,7 @@
     
    <!-- </form>-->
       </tr>
-  </tbody>
+ 
 {% endfor %}
    
 </table>
@@ -56,7 +56,7 @@
   <script>
 //setInterval(function(){ window.location.reload();}, 3000);
     document.getElementById("post_it").ondblclick = function() {myfunction()};
- 
+ /*
     function allowDrop(ev){
 	ev.preventDefault(); 
 }	
@@ -72,7 +72,7 @@ function drop(ev){
 	
 	ev.target.append(document.getElementById(id));
 }
- 
+ */
  function s(){alert("oui");}
  function myfunction() {
    

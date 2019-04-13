@@ -111,6 +111,7 @@ app.post('/admindelete', async (req, res) => {
   }
     res.redirect('/p');
 }); 
+
 app.get('/', (req, res) => {
   if (req.session.user) {
     res.redirect('/p');
