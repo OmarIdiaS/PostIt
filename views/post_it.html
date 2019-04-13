@@ -26,7 +26,7 @@
 <table>
   
 {% for d in donn %}
- <tbody id="oui" ondragstart = "dragStart(event)" ondragover = "allowDrop(event)" ondrop="drop(event)" >
+ <tbody id="{{d.login}}" ondragstart = "dragStart(event)" ondragover = "allowDrop(event)" ondrop="drop(event)" >
   <tr>
     <!--<form action="/modification" method="post">-->
     <td>{{d.login}}<textarea name="login"  style="display:none;" >{{d.login}}</textarea></td>
@@ -64,7 +64,7 @@
 function dragStart(ev){
 	
 	id = ev.target.id ; 
-	//alert(id);
+	alert(id);
 	
 }
 
