@@ -54,11 +54,6 @@
  
  
  function s(){alert("oui");}
-    
-
-    
-
-    
  function myfunction() {
    
    // Coordonnees
@@ -90,10 +85,10 @@
         var json = JSON.stringify(xhr.responseText);
         alert("les donnees sont envoyer a la BD");
         //window.setInterval(window.location.reload(),2)
-       // window.location.reload();
-                setInterval(function(){ window.location.reload();}, 3000);
+        window.location.reload();
+//                setInterval(function(){ window.location.reload();}, 3000);
 
-//settimeout(setInterval(function(){ window.location.reload();}, 4000);
+      //settimeout(setInterval(function(){ window.location.reload();}, 4000);
 
 
       //window.location.reload();
@@ -107,53 +102,6 @@
    
  }
     
-    
-    
-  
-  var width=100;
- var difference=2;
- var interveralID =0;
- //document.getElementById("img1").style.width=width;
- 
- function increase()
- {
- clearInterval(interveralID);
- interveralID=setInterval(expand,10);
- }
- function decrease()
- {
- clearInterval(interveralID);
- interveralID=setInterval(shrink,10);
- }
- function expand()
- {
- if(width<200)
- {
- width = width+difference;
- document.getElementById("imgg").style.width=width;
- console.log(width);
- }
- else
- {
- clearInterval(interveralID);
- }
- 
- }
- function shrink()
- {
- if(width>100)
- {
- width = width-difference;
- document.getElementById("imgg").style.width=width;
- console.log(width);
- }
- else
- {
- clearInterval(interveralID);
- }
- 
- }
-  
 </script>
   
  <!-- <div>
@@ -165,8 +113,6 @@
   </div>-->
   
   
-  <div class="message">
-  {{ message }}
-  </div>
+  
 </body>
 {% endblock %}
