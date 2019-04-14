@@ -84,11 +84,11 @@ app.post('/signin', async (req, res) => {
 
 
 app.get('/', async (req, res) => {
-if(res.session.user){
+
 res.render('guest.html', { 
         donn: await knex.raw(`SELECT * FROM donn`),
         
-      });}
+      });
 });
 
 app.post('/', async (req, res) => {
@@ -217,11 +217,11 @@ await knex('donn')
   
   res.redirect('/p');}
   
-  else{
+  if(req.session.user == "admin"){
   await knex('donn')
-       .Where({id : req.body.img})
+       .where({id : req.body.img})
        .update({txt: req.body.nouveau})
-        .update({datee : req.body.ndatee});
+       .update({datee : req.body.ndatee});
   
   
   res.redirect('/p');
