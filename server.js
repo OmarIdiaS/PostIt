@@ -87,7 +87,7 @@ app.get('/', async (req, res) => {
   
 res.render('guest.html', { 
         donn: await knex.raw(`SELECT * FROM donn`),
-        //current: req.session.user,
+        
       });
 });
 
@@ -166,7 +166,7 @@ await knex('donn')
        .andWhere({id : req.body.img})
        .del();
   
-  res.redirect('/');
+  res.redirect('/p');
   }
   else
   {
@@ -174,7 +174,7 @@ await knex('donn')
        .where({id : req.body.img})
        .del();
     
-    res.redirect('/');
+    res.redirect('/p');
   }
 });
 
@@ -198,7 +198,9 @@ app.get('/:n', async (req, res) => {
              {
     current : req.session.user, 
     donn : await knex('donn')
-          .where({useer : req.params.n})});
+          .where({useer : req.params.n})
+  });
+  
  
 });
 
@@ -210,20 +212,19 @@ await knex('donn')
        .where({useer : req.session.user})
        .andWhere({id : req.body.img})
        .update({txt: req.body.nouveau})
-        .update({datee : req.body.ndatee});
+       .update({datee : req.body.ndatee});
   
   
-  res.redirect('/');}
+  res.redirect('/p');}
   
   else{
   await knex('donn')
        .Where({id : req.body.img})
        .update({txt: req.body.nouveau})
-        .update({datee : req.body.ndatee})
-        ;
+        .update({datee : req.body.ndatee});
   
   
-  res.redirect('/');
+  res.redirect('/p');
   }
 });
 
