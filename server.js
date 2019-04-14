@@ -139,7 +139,7 @@ await knex('donn')
   res.redirect('/p');
   }else{
   await knex('donn')
-       .andWhere({id : req.body.img})
+       .Where({id : req.body.img})
        .del();
     
     res.redirect('/p');
@@ -172,14 +172,25 @@ app.get('/:n', async (req, res) => {
 
 app.post('/modif', async (req, res) => {
   
-  
+  if(!(req.session.user == "guest")){
 await knex('donn')
        .where({useer : req.session.user})
        .andWhere({id : req.body.img})
        .update({txt: req.body.nouveau});
   
   
+  res.redirect('/p');}
+  
+  else{
+  await knex('donn')
+       .Where({id : req.body.img})
+       .update({txt: req.body.nouveau},
+               {datee : "a"})
+        ;
+  
+  
   res.redirect('/p');
+  }
 });
 
 
