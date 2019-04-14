@@ -48,7 +48,7 @@
       <!--<td><a href = "/" class="submit"  ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Update"></a></td>-->
      
     </form>
-     <td><a onclick="s({{d.txt}})"  ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"  ></a></td>
+     <td><a onclick="s('{{d.id}}', '{{d.useer}}' , '{{d.txt}}', '{{d.datee}}' , '{{d.coor}}')"  ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"  ></a></td>
     
       </tr>
  
@@ -79,7 +79,33 @@ function drop(ev){
  */
     
     
-    function s(x,y){alert(x +  "" + y);}
+    //function s(x,y){console.log(x +  "" + y);}
+    
+    function s(x,y,z,a,b){
+   
+   var texte = prompt("Saisir votre texte ::");
+   
+   var xhr = new XMLHttpRequest();
+    var url = "/modification";
+    xhr.open("POST", url, true); 
+
+   
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        var json = JSON.stringify(xhr.responseText);
+        alert("les donnees sont envoyer a la BD");
+        window.location.reload();
+
+      }
+    };
+  
+  var data = { id: x, useer : y ,  txt : texte , datee : a, coor : b  };
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(JSON.stringify(data));
+  console.log('okk');
+ 
+   
+ };
     
     
  
