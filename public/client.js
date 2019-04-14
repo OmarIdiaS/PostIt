@@ -108,6 +108,7 @@ function drop(ev){
     
    
   function fct(x){
+    alert('voulez-vous modifier votre post_it ? '); 
     var y = prompt("saisir"); 
   document.getElementById(x).value = y;
     

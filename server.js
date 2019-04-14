@@ -166,17 +166,6 @@ app.get('/:n', async (req, res) => {
  
 });
 
-app.get('/change', async (req, res) => {
-  
-res.render('change.html', { 
-        current: req.session.user,
-        donn: await knex.raw(`SELECT * FROM donn`),
-        
-      });
-});
-
-
-
 app.post('/modif', async (req, res) => {
   
   
