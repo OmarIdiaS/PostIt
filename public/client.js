@@ -59,6 +59,7 @@ document.addEventListener('mousemove', function(event) {
    //TEXTE
   
    var texte = prompt("Saisir votre texte ::");
+   if(texte == null || texte == ""){ return;}
     var xhr = new XMLHttpRequest();
     var url = "/p";
     xhr.open("POST", url, true); 
@@ -73,6 +74,7 @@ document.addEventListener('mousemove', function(event) {
     };
   
   var data = { login: texte, txt : date, x : x, y: y};
+   var data = {txt : texte , x: x , y: y ,  datee : date }
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(JSON.stringify(data));
   console.log('okk');

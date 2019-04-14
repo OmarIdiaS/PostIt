@@ -98,7 +98,9 @@ app.post('/p', async (req, res) => {
   var data = {
     txt: req.body.txt,
     datee  : req.body.datee,
-    coor:req.body.coor,
+//    coor:req.body.coor,
+    x: req.body.x , 
+    y : req.body.y , 
     useer : req.session.user,
  };
   

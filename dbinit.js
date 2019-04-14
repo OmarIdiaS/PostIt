@@ -25,6 +25,8 @@ async function init() {
     table.string('datee');
     table.string('coor'); 
     table.string('useer');
+    table.string('x'); 
+    table.string('y'); 
     table.increments();
   });
 
