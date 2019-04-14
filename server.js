@@ -169,8 +169,9 @@ app.get('/:n', async (req, res) => {
 app.get('/change', async (req, res) => {
   
 res.render('change.html', { 
-        donn: await knex.raw(`SELECT * FROM donn`),
         current: req.session.user,
+        donn: await knex.raw(`SELECT * FROM donn`),
+        
       });
 });
 
