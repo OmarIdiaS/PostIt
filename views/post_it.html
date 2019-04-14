@@ -28,28 +28,28 @@
 {% for d in donn %}
 
   <tr>
-    <form action="/modification" method="post">
+   
     <td>{{d.txt}}<textarea name="txt"  style="display:none;" >{{d.txt}}</textarea></td>
      
     <td>{{d.datee}}<textarea name="datee"  style="display:none;" >{{d.datee}}</textarea></td>
     
     <td>{{d.coor}}</td>
     
-    
+    <form action="/suppr" method="post">
       
     <td><textarea name="img"  style="display:none;">{{d.id}}</textarea></td>
       
     <td>{{d.useer}}</td>
-      
+    <!--<td><input  type="texte"  name="mach"  ></td>-->
     <td><a href = "/" class="submit" ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Delete" ></a></td>
       <!--<td><textarea name="mach"  ></textarea></td>-->
-      <td><input  type="texte"  name="mach"  ></td>
+      
       
       <!--<td><a href = "/" class="submit"  ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Update"></a></td>-->
    
     </form>
     
-    </form>
+    
       </tr>
  
 {% endfor %}

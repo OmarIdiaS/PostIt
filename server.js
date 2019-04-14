@@ -79,12 +79,20 @@ res.render('post_it.html', {
 
 
 app.post('/suppr', async (req, res) => {
+  if(!(req.session.user == "guest")){
 await knex('donn')
        .where({useer : req.session.user})
        .andWhere({id : req.body.img})
        .del();
   
   res.redirect('/p');
+  }else{
+  await knex('donn')
+       .andWhere({id : req.body.img})
+       .del();
+    
+    res.redirect('/p');
+  }
 });
 app.post('/admindelete', async (req, res) => {
   if(req.session.user == "guest"){
