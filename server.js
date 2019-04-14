@@ -130,7 +130,7 @@ res.render('post_it.html', {
 
 
 app.post('/suppr', async (req, res) => {
-  if(!(req.session.user == "guest")){
+  if(!(req.session.user == "admini")){
 await knex('donn')
        .where({useer : req.session.user})
        .andWhere({id : req.body.img})
@@ -147,7 +147,7 @@ await knex('donn')
 });
 
 app.post('/admindelete', async (req, res) => {
-  if(req.session.user == "guest"){
+  if(req.session.user == "admini"){
     await knex('donn').del();
   }
     res.redirect('/p');
@@ -172,7 +172,7 @@ app.get('/:n', async (req, res) => {
 
 app.post('/modif', async (req, res) => {
   
-  if(!(req.session.user == "guest") ){
+  if(!(req.session.user == "admini") ){
     
 await knex('donn')
        .where({useer : req.session.user})
