@@ -29,11 +29,60 @@ var knex = require('knex')({
 });
 
 
-app.get('/lst', async (req, res) => {
-res.render('lst.html', { 
-        donn: await knex('donn'),
-      });
+app.get('/', (req, res) => {
+  if (req.session.user) {
+    res.redirect('/p');
+  } else {
+    res.render('login.html');
+  }
 });
+
+app.post('/', async (req, res) => {
+  var user = await knex('users').where({
+    login: req.body.login,
+    pass: req.body.password,
+  }).first();
+  if (user) {
+    req.session.user = req.body.login;
+    res.redirect('/p');
+  } else {
+    res.render('login.html', { 
+      login: req.body.login,
+      message: 'Wrong login or password',
+    });
+  }
+});
+
+
+app.get('/signin', (req, res) => {
+  res.render('signin.html');
+});
+
+app.post('/signin', async (req, res) => {
+  var data = {
+    login: req.body.login,
+    pass: req.body.password,
+    name: req.body.name
+  };
+  try {
+    if (data.login 
+        && data.pass
+        && await knex('users').insert(data)) {
+      res.redirect('/');
+    } else {
+      res.render('signin.html', { data: data, message: 'Bad data' });
+    }
+  } catch (err) {
+    if (err.code == 'SQLITE_CONSTRAINT') {
+      res.render('signin.html', { data: data, message: 'Login already taken' });
+    } else {
+      console.error(err);
+      res.status(500).send('Error');
+    }
+  }
+});
+
+
 
 
 app.get('/p', async (req, res) => {
@@ -94,6 +143,7 @@ await knex('donn')
     res.redirect('/p');
   }
 });
+
 app.post('/admindelete', async (req, res) => {
   if(req.session.user == "guest"){
     await knex('donn').del();
@@ -101,74 +151,6 @@ app.post('/admindelete', async (req, res) => {
     res.redirect('/p');
 }); 
 
-app.get('/', (req, res) => {
-  if (req.session.user) {
-    res.redirect('/p');
-  } else {
-    res.render('login.html');
-  }
-});
-
-app.post('/', async (req, res) => {
-  var user = await knex('users').where({
-    login: req.body.login,
-    pass: req.body.password,
-  }).first();
-  if (user) {
-    req.session.user = req.body.login;
-    res.redirect('/p');
-  } else {
-    res.render('login.html', { 
-      login: req.body.login,
-      message: 'Wrong login or password',
-    });
-  }
-});
-
-
-app.get('/userlist', async (req, res) => {
-  if (req.session.user) {
-    try {
-      res.render('userlist.html', { 
-        users: await knex('users'),
-        current: req.session.user,
-      });
-    } catch (err) {
-      console.error(err);
-      res.status(500).send('Error');
-    }
-  } else {
-    res.redirect('/');
-  }
-});
-
-app.get('/signin', (req, res) => {
-  res.render('signin.html');
-});
-
-app.post('/signin', async (req, res) => {
-  var data = {
-    login: req.body.login,
-    pass: req.body.password,
-    name: req.body.name
-  };
-  try {
-    if (data.login 
-        && data.pass
-        && await knex('users').insert(data)) {
-      res.redirect('/');
-    } else {
-      res.render('signin.html', { data: data, message: 'Bad data' });
-    }
-  } catch (err) {
-    if (err.code == 'SQLITE_CONSTRAINT') {
-      res.render('signin.html', { data: data, message: 'Login already taken' });
-    } else {
-      console.error(err);
-      res.status(500).send('Error');
-    }
-  }
-});
 
 
 app.get('/logout', (req, res) => {
@@ -184,6 +166,15 @@ app.get('/:n', async (req, res) => {
  
 });
 
+app.get('/change', async (req, res) => {
+  
+res.render('change.html', { 
+        donn: await knex.raw(`SELECT * FROM donn`),
+        current: req.session.user,
+      });
+});
+
+
 
 app.post('/modif', async (req, res) => {
   
@@ -197,13 +188,7 @@ await knex('donn')
   res.redirect('/p');
 });
 
-app.get('/change', async (req, res) => {
-  
-res.render('change.html', { 
-        donn: await knex.raw(`SELECT * FROM donn`),
-        current: req.session.user,
-      });
-});
+
 
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
