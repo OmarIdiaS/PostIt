@@ -185,6 +185,7 @@ await knex('donn')
        //.andWhere({txt : req.body.txt})
        .update({txt : req.body.mach});
   
+  
   res.redirect('/p');
 });
 
