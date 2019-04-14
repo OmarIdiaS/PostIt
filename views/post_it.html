@@ -86,8 +86,8 @@ function drop(ev){
    var texte = prompt("Saisir votre texte ::");
    
    var xhr = new XMLHttpRequest();
-    var url = "/modification";
-    xhr.open("UPDATE", url, true); 
+    var url = "/modif";
+    xhr.open("POST", url, true); 
 
    
     xhr.onreadystatechange = function () {
@@ -98,8 +98,8 @@ function drop(ev){
 
       }
     };
-  
-  var data = {id: x,txt : texte ,datee : a,coor : b };
+ // s('{{d.id}}', '{{d.useer}}' , '{{d.txt}}', '{{d.datee}}' , '{{d.coor}}')
+  var data = {id: x,txt : z ,datee : a,coor : b , texte};
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(JSON.stringify(data));
   console.log('okk');
