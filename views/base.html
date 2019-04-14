@@ -9,9 +9,10 @@
     {% block menu %}
     <menu>
       {% if current %}
-      <a href="/logout">Logout</a>
+      <a style="right: 20px; position:absolute;" href="/logout">Logout</a>
+  
       {% else %}
-      <a href="/signin">Signin</a>
+      <a id="register" href="/signin">Signin</a>
       {% endif %}
     </menu>
     {% endblock %}

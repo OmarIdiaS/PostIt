@@ -12,18 +12,27 @@
 {% block main %}
 
 
-<body id="post_it"> 
-<table>
-  <tr>
-  <td>Welcome {{current}}</td>
-    <form action="/admindelete" method="post">
-    <a href="/" class="submit"><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="DELETE"></a>
-    </form>
-    
-    </tr>
+<body id="post_it" style="height:100%">
+ <p id ="welcome" style="position: absolute; right:20px;  top: 40px">
+      welcome {{current}}
+    </p>
   
-</table>
+ 
+     
+ <form  action="/admindelete" method="post">
+    <p style= "right: 60px; bottom: 32px; position: absolute; display: block; ">
+    <a   href="/" class="submit"><input type="image" src="https://www.freeiconspng.com/uploads/remove-icon-png-24.png" style="height:20px;weight:20px;" value="DELETE"></a>
+  <p style= "right:20px; bottom:10px; position: absolute">
+    Delete all notes
+   </p>
+   </p> 
+  </form>
   
+
+<div id="{{d.id}}" class="postIt" onclick="clickdiv(this.id)" style="left:{{d.x}}px;top:{{d.y}}px;">
+          
+          <tr><form action="/suppr" method="post">
+             <td> {{ d.useer }}  <br>
 <table>
   
 {% for d in donn %}

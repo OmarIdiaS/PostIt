@@ -3,13 +3,23 @@
 {% block title %}Signin{% endblock %}
 
 {% block main %}
+<div class = "container">
+  <section id="content">
+    <h1>
+      Register
+    </h1>
 <form method="post">
   <input type="text" name="name" placeholder="Ex: Mathieu" value="{{data.name}}" required>
   <input type="text" name="login" placeholder="login" value="{{ data.login }}">
   <input type="password" name="password" placeholder="password" value="{{ data.password }}">
   <input type="submit" value="Create account">
 </form>
-
+   
+</section>
+</div>
+ <p>
+     Déjà inscrit? <a id="connect" href="/">Connectez vous</a>
+    </p>
 <div class="message">
   {{ message }}
 </div>
