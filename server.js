@@ -186,7 +186,8 @@ await knex('donn')
   await knex('donn')
        .Where({id : req.body.img})
        .update({txt: req.body.nouveau})
-        .update({datee : req.body.ndatee});
+        .update{datee : req.body.ndatee})
+        ;
   
   
   res.redirect('/p');

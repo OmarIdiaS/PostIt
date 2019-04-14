@@ -132,6 +132,11 @@ document.addEventListener('mousemove', function(event) {
  function fct(x,b){
     alert('voulez-vous modifier votre post_it ? '); 
     var y = prompt("saisir"); 
+   if(y == null || y == ""){
+     document.getElementById(x).value = document.getElementById(x).value;
+     document.getElementById(b).value = document.getElementById(b).value;
+     return 0; 
+   } 
   document.getElementById(x).value = y;
    
    var d = new Date(); 
