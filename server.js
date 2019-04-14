@@ -29,22 +29,22 @@ var knex = require('knex')({
 });
 
 
-app.get('/', (req, res) => {
+app.get('/connexion', (req, res) => {
   if (req.session.user) {
-    res.redirect('/p');
+    res.redirect('/');
   } else {
     res.render('login.html');
   }
 });
 
-app.post('/', async (req, res) => {
+app.post('/connexion', async (req, res) => {
   var user = await knex('users').where({
     login: req.body.login,
     pass: req.body.password,
   }).first();
   if (user) {
     req.session.user = req.body.login;
-    res.redirect('/p');
+    res.redirect('/');
   } else {
     res.render('login.html', { 
       login: req.body.login,
@@ -85,7 +85,7 @@ app.post('/signin', async (req, res) => {
 
 
 
-app.get('/p', async (req, res) => {
+app.get('/', async (req, res) => {
   
 res.render('post_it.html', { 
         donn: await knex.raw(`SELECT * FROM donn`),
@@ -93,12 +93,11 @@ res.render('post_it.html', {
       });
 });
 
-app.post('/p', async (req, res) => {
+app.post('/', async (req, res) => {
   
   var data = {
     txt: req.body.txt,
     datee  : req.body.datee,
-//    coor:req.body.coor,
     x: req.body.x , 
     y : req.body.y , 
     useer : req.session.user,
@@ -107,13 +106,13 @@ app.post('/p', async (req, res) => {
   try {
     
     if (await knex('donn').insert(data)) {
-      res.redirect('/p');
+      res.redirect('/');
     } 
   } catch (err) {
     if (err.code == 'SQLITE_CONSTRAINT') {
       console.error(err);
       res.status(500).send('Error');
-      res.redirect('/');
+      res.redirect('/connexion');
     }
   }
   
@@ -130,27 +129,29 @@ res.render('post_it.html', {
 
 
 app.post('/suppr', async (req, res) => {
-  if(!(req.session.user == "admini")){
+  if(!(req.session.user == "admin")){
 await knex('donn')
        .where({useer : req.session.user})
        .andWhere({id : req.body.img})
        .del();
   
-  res.redirect('/p');
-  }else{
+  res.redirect('/');
+  }
+  else
+  {
   await knex('donn')
-       .Where({id : req.body.img})
+       .where({id : req.body.img})
        .del();
     
-    res.redirect('/p');
+    res.redirect('/');
   }
 });
 
 app.post('/admindelete', async (req, res) => {
-  if(req.session.user == "admini"){
+  if(req.session.user == "admin"){
     await knex('donn').del();
   }
-    res.redirect('/p');
+    res.redirect('/');
 }); 
 
 
@@ -172,7 +173,7 @@ app.get('/:n', async (req, res) => {
 
 app.post('/modif', async (req, res) => {
   
-  if(!(req.session.user == "admini") ){
+  if(!(req.session.user == "admin") ){
     
 await knex('donn')
        .where({useer : req.session.user})
@@ -181,7 +182,7 @@ await knex('donn')
         .update({datee : req.body.ndatee});
   
   
-  res.redirect('/p');}
+  res.redirect('/');}
   
   else{
   await knex('donn')
@@ -191,7 +192,7 @@ await knex('donn')
         ;
   
   
-  res.redirect('/p');
+  res.redirect('/');
   }
 });
 
