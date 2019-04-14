@@ -107,4 +107,8 @@ function drop(ev){
     
     
    
-  
+  function fct(x){
+    var y = prompt("saisir"); 
+  document.getElementById(x).value = y;
+    
+  }
