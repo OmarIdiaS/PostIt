@@ -76,26 +76,7 @@ res.render('post_it.html', {
       });
 });
 
-/*app.post('/suppr', async (req, res) => {
-  
-  
- try {
-   if (await knex('donn')
-       .where({useer : req.session.user})
-       .andWhere({txt : req.body.txt})
-       .del()) {
-      res.redirect('/lst');
-    } 
-  } catch (err) {
-    if (err.code == 'SQLITE_CONSTRAINT') {
-      console.error(err);
-      res.status(500).send('Error');
-      res.redirect('/');
-    }
-  }
 
- });
-*/
 
 app.post('/suppr', async (req, res) => {
 await knex('donn')
@@ -126,7 +107,7 @@ app.post('/', async (req, res) => {
     pass: req.body.password,
   }).first();
   if (user) {
-    req.session.user = req.body.txt;
+    req.session.user = req.body.login;
     res.redirect('/p');
   } else {
     res.render('login.html', { 
@@ -201,8 +182,8 @@ await knex('donn')
        .where({useer : req.session.user})
        .andWhere({datee : req.body.datee})
        .andWhere({id : req.body.img})
-       .andWhere({txt : req.body.login})
-       .update({login : req.body.login});
+       .andWhere({txt : req.body.txt})
+       .update({txt : req.body.txt});
   
   res.redirect('/p');
 });
