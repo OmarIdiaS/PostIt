@@ -84,11 +84,11 @@ app.post('/signin', async (req, res) => {
 
 
 app.get('/', async (req, res) => {
-  
+if(res.session.user){
 res.render('guest.html', { 
         donn: await knex.raw(`SELECT * FROM donn`),
         
-      });
+      });}
 });
 
 app.post('/', async (req, res) => {
