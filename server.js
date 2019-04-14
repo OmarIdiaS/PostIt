@@ -187,7 +187,7 @@ app.get('/:n', async (req, res) => {
 
 app.post('/modification', async (req, res) => {
 await knex('donn')
-       //.where({useer : req.session.user})
+       .where({useer : req.session.user})
        //.andWhere({datee : req.body.datee})
        .andWhere({id : req.body.img})
        //.andWhere({txt : req.body.txt})
