@@ -1,119 +1,7 @@
-
-  
-//setInterval(function(){ window.location.reload();}, 3000);
-    document.getElementById("post_it").ondblclick = function() {myfunction()};
- /*
-    function allowDrop(ev){
-	ev.preventDefault(); 
-}	
-
-function dragStart(ev){
-	
-	id = ev.target.id ; 
-	alert(id);
-	
-}
-
-function drop(ev){
-	
-	ev.target.append(document.getElementById(id));
-}
- */
     
     
-    //function s(x,y){console.log(x +  "" + y);}
-    
-    function s(x,y,z,a,b){
-   
-   var texte = prompt("Saisir votre texte ::");
-   
-   var xhr = new XMLHttpRequest();
-    var url = "/modif";
-    
-
-   
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-        var json = JSON.stringify(xhr.responseText);
-        alert("les donnees sont envoyer a la BD");
-        window.location.reload();
-
-      }
-    };
-      
-      
-      
- // s('{{d.id}}', '{{d.useer}}' , '{{d.txt}}', '{{d.datee}}' , '{{d.coor}}')
-  var data = {id: x};
-  xhr.open("POST", url, true); 
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send(JSON.stringify(data));
-      
-  console.log('okk');
+ document.getElementById("post_it").ondblclick = function() {myfunction()};
  
-   
- };
-    
-    
- 
-    
- function myfunction() {
-   
-   // Coordonnees
-    var x = event.clientX ; 
-	  var y = event.clientY; 
-	  var coor = "X :" + x + " Y :"  + y ;
-  
-   // Date
-   var d = new Date(); 
-	
-	var j = d.getDate(); 
-	var mois = d.getMonth() + 1; 
-	var annee = d.getFullYear(); 
-	var h = d.getHours(); 
-	var m = d.getMinutes();
-   var date = j+"/"+mois+"/"+annee+"  "+h+":"+m ; 
-   
-   //TEXTE
-   
-   var texte = prompt("Saisir votre texte ::");
-   
-    var xhr = new XMLHttpRequest();
-    var url = "/p";
-    xhr.open("POST", url, true); 
-
-   
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-        var json = JSON.stringify(xhr.responseText);
-        alert("les donnees sont envoyer a la BD");
-        //window.setInterval(window.location.reload(),2)
-        window.location.reload();
-//                setInterval(function(){ window.location.reload();}, 3000);
-
-      //settimeout(setInterval(function(){ window.location.reload();}, 4000);
-
-
-      //window.location.reload();
-      }
-    };
-  
-  var data = { txt : texte, datee : date, coor : coor};
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send(JSON.stringify(data));
-  console.log('okk');
-   
- }
-    
-    
-   
-  function fct(x){
-    alert('voulez-vous modifier votre post_it ? '); 
-    var y = prompt("saisir"); 
-  document.getElementById(x).value = y;
-    
-  }
-
 function clickdiv(id){
   
   var mousePosition;
@@ -148,3 +36,98 @@ document.addEventListener('mousemove', function(event) {
 }, true);
 }
   
+    
+    
+    
+ function myfunction() {
+    
+   // Coordonnees
+    var x = event.clientX ; 
+	  var y = event.clientY; 
+	  var coor = "X :" + x + " Y :"  + y ;
+  
+   // Date
+   var d = new Date(); 
+	
+	var j = d.getDate(); 
+	var mois = d.getMonth() + 1; 
+	var annee = d.getFullYear(); 
+	var h = d.getHours(); 
+	var m = d.getMinutes();
+   var date = j+"/"+mois+"/"+annee+"  "+h+":"+m ; 
+   
+   //TEXTE
+  
+   var texte = prompt("Saisir votre texte ::");
+    var xhr = new XMLHttpRequest();
+    var url = "/p";
+    xhr.open("POST", url, true); 
+
+   
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        var json = JSON.stringify(xhr.responseText);
+        alert("les donnees sont envoyer a la BD");
+        window.location.reload();
+      }
+    };
+  
+  var data = { login: texte, txt : date, x : x, y: y};
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(JSON.stringify(data));
+  console.log('okk');
+   
+ }
+    
+  
+  
+  var width=100;
+ var difference=2;
+ var interveralID =0;
+ //document.getElementById("img1").style.width=width;
+ 
+ function increase()
+ {
+ clearInterval(interveralID);
+ interveralID=setInterval(expand,10);
+ }
+ function decrease()
+ {
+ clearInterval(interveralID);
+ interveralID=setInterval(shrink,10);
+ }
+ function expand()
+ {
+ if(width<200)
+ {
+ width = width+difference;
+ document.getElementById("imgg").style.width=width;
+ console.log(width);
+ }
+ else
+ {
+ clearInterval(interveralID);
+ }
+ 
+ }
+ function shrink()
+ {
+ if(width>100)
+ {
+ width = width-difference;
+ document.getElementById("imgg").style.width=width;
+ console.log(width);
+ }
+ else
+ {
+ clearInterval(interveralID);
+ }
+ 
+ }
+
+ function fct(x){
+    alert('voulez-vous modifier votre post_it ? '); 
+    var y = prompt("saisir"); 
+  document.getElementById(x).value = y;
+    
+  }
