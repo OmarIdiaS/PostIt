@@ -47,8 +47,8 @@ res.render('post_it.html', {
 app.post('/p', async (req, res) => {
   
   var data = {
-    login: req.body.login,
-    txt : req.body.txt,
+    txt: req.body.txt,
+    datee  : req.body.datee,
     coor:req.body.coor,
     useer : req.session.user,
  };
@@ -126,7 +126,7 @@ app.post('/', async (req, res) => {
     pass: req.body.password,
   }).first();
   if (user) {
-    req.session.user = req.body.login;
+    req.session.user = req.body.txt;
     res.redirect('/p');
   } else {
     res.render('login.html', { 
@@ -199,9 +199,9 @@ app.get('/:n', async (req, res) => {
 app.post('/modification', async (req, res) => {
 await knex('donn')
        .where({useer : req.session.user})
-       .andWhere({txt : req.body.txtt})
+       .andWhere({datee : req.body.datee})
        .andWhere({id : req.body.img})
-       .andWhere({login : req.body.login})
+       .andWhere({txt : req.body.login})
        .update({login : req.body.login});
   
   res.redirect('/p');

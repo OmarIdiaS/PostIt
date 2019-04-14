@@ -22,7 +22,7 @@ async function init() {
   });
   await knex.schema.createTable('donn', (table) => {
     table.string('login');
-    table.string('txt');
+    table.string('datee');
     table.string('coor'); 
     table.string('useer');
     table.increments();
