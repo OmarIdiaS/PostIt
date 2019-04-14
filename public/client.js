@@ -41,19 +41,14 @@ function drop(ev){
       }
     };
       
-      var formdata = new FormData();
-    formdata.append("id",x);
-     // formdata.append("txt",z);
-      formdata.append(a,'datee');
-      formdata.append(b,'coor');
-      formdata.append(texte,'txt');
+      
       
  // s('{{d.id}}', '{{d.useer}}' , '{{d.txt}}', '{{d.datee}}' , '{{d.coor}}')
-  //var data = {id: x};
+  var data = {id: x};
   xhr.open("POST", url, true); 
   xhr.setRequestHeader("Content-Type", "application/json");
-  //xhr.send(JSON.stringify(data));
-      xhr.send(formdata); 
+  xhr.send(JSON.stringify(data));
+      
   console.log('okk');
  
    

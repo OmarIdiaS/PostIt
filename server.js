@@ -187,25 +187,23 @@ app.get('/:n', async (req, res) => {
 
 app.post('/modif', async (req, res) => {
   
-  var data = {
-    txt: req.body.txt,
-    datee  : req.body.datee,
-    coor:req.body.coor,
-    useer : req.session.user,
- };
   
 await knex('donn')
        .where({useer : req.session.user})
-       .andWhere({datee : req.body.datee})
        .andWhere({id : req.body.img})
-       .andWhere({txt : req.body.txt})
-       .andWhere({coor : req.body.coor})
-       .update({txt: "ss"});
+       .update({txt: req.body.nouveau});
   
   
   res.redirect('/p');
 });
 
+app.get('/change', async (req, res) => {
+  
+res.render('change.html', { 
+        donn: await knex.raw(`SELECT * FROM donn`),
+        current: req.session.user,
+      });
+});
 
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
