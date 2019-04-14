@@ -20,9 +20,6 @@
     <a href="/" class="submit"><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="DELETE"></a>
     </form>
     
-    <a href="/" class="submit"><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="DELETE"></a>
-    <form>
-    </form>
     </tr>
   
 </table>
@@ -52,7 +49,13 @@
       <!--<td><a href = "/" class="submit"  ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Update"></a></td>-->
      
     </form>
-     <td><a onclick="s('{{d.id}}', '{{d.useer}}' , '{{d.txt}}', '{{d.datee}}' , '{{d.coor}}')"  ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"  ></a></td>
+    <!-- <td><a onclick="s('{{d.id}}', '{{d.useer}}' , '{{d.txt}}', '{{d.datee}}' , '{{d.coor}}')"  ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"  ></a></td>-->
+    
+    <form action="/modif" method="post">
+      <td><textarea name="img"  style="display:none;">{{d.id}}</textarea></td>
+      <td><textarea  name="nouveau" onclick="return prompt('oui')" ></textarea></td>
+      <td><a href="/" ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"  ></a></td>
+    </form>
     
       </tr>
  
