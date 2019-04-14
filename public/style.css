@@ -309,3 +309,8 @@ text-align : center;
     bottom: 2px;
  
 }
+
+*{
+
+box-sizing:border-box;
+}
