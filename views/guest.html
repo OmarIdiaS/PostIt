@@ -1,11 +1,10 @@
+<!Doctype html>
 
-{% extends "base.html" %}
 
 
-{% block title %}Post_it{% endblock %}
 
 {% block head %} 
-
+<title>POST_IT</title>
     <link rel="stylesheet" href="public/style.css"> 
     
 
@@ -14,24 +13,9 @@
 {% block main %}
 
 <body id="post_it" style="height:100%">
- <p id ="welcome" style="position: absolute; right:20px;  top: 40px">
-      welcome {{current}}
-    </p>
-  
  
-     
- <form  action="/admindelete" method="post">
-    <p style= "right: 60px; bottom: 32px; position: absolute; display: block; ">
-    <a   href="/" class="submit"><input type="image" src="https://www.freeiconspng.com/uploads/remove-icon-png-24.png" style="height:20px;weight:20px;" value="DELETE"></a>
-  <p style= "right:20px; bottom:10px; position: absolute">
-    Delete all notes
-   </p>
-   </p> </form>
+  <a href="/connexion" style="right: 20px; position:absolute;">login</a>
   
-
-
-
-
  {% for d in donn %}
   
         <div id="{{d.id}}" class="postIt" onclick="clickdiv(this.id)" style="left:{{d.x}}px;top:{{d.y}}px;">

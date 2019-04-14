@@ -31,7 +31,7 @@ var knex = require('knex')({
 
 app.get('/connexion', (req, res) => {
   if (req.session.user) {
-    res.redirect('/');
+    res.redirect('/p');
   } else {
     res.render('login.html');
   }
@@ -44,7 +44,7 @@ app.post('/connexion', async (req, res) => {
   }).first();
   if (user) {
     req.session.user = req.body.login;
-    res.redirect('/');
+    res.redirect('/p');
   } else {
     res.render('login.html', { 
       login: req.body.login,

@@ -15,14 +15,16 @@
 <body> 
 
  
-
+<p>
+  Welcome {{current}}
+  </p>
  {% for d in donn %}
   
-        <div id="{{d.id}}" class="postIt" onclick="clickdiv(this.id)" style="left:{{d.x}}px;top:{{d.y}}px;">
+        <div style= "background-color:#c13c42; height:30px;">
           
           <tr><form action="/suppr" method="post">
            
-             <td> {{ d.useer }}  <br>
+             <td> 
  
      
     <p id="date">
@@ -52,7 +54,7 @@
          
     
   {% endfor %}
-
+  <script type="text/javascript" src="public/client.js"></script>
  
 </body>
 {% endblock %}
