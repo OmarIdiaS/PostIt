@@ -172,7 +172,8 @@ app.get('/:n', async (req, res) => {
 
 app.post('/modif', async (req, res) => {
   
-  if(!(req.session.user == "guest")){
+  if(!(req.session.user == "guest") ){
+    
 await knex('donn')
        .where({useer : req.session.user})
        .andWhere({id : req.body.img})
@@ -186,7 +187,7 @@ await knex('donn')
   await knex('donn')
        .Where({id : req.body.img})
        .update({txt: req.body.nouveau})
-        .update{datee : req.body.ndatee})
+        .update({datee : req.body.ndatee})
         ;
   
   
