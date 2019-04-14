@@ -28,7 +28,7 @@
 {% for d in donn %}
 
   <tr>
-    <!--<form action="/modification" method="post">-->
+    <form action="/modification" method="post">
     <td>{{d.txt}}<textarea name="txt"  style="display:none;" >{{d.txt}}</textarea></td>
      
     <td>{{d.datee}}<textarea name="datee"  style="display:none;" >{{d.datee}}</textarea></td>
@@ -42,11 +42,11 @@
     <td>{{d.useer}}</td>
       
     <td><a href = "/" class="submit" ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Delete" ></a></td>
-      <!--<td><a href = "/" class="submit" onclick=" prompt('oui')" value="{{d.login}}" ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Update"></a></td>-->
+      <td><a href = "/" class="submit" onclick=" prompt('oui') " name="mach" ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Update"></a></td>
    
     </form>
     
-   <!-- </form>-->
+    </form>
       </tr>
  
 {% endfor %}

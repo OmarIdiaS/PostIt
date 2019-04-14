@@ -183,7 +183,7 @@ await knex('donn')
        .andWhere({datee : req.body.datee})
        .andWhere({id : req.body.img})
        .andWhere({txt : req.body.txt})
-       .update({txt : req.body.txt});
+       .update({txt : req.body.mach});
   
   res.redirect('/p');
 });
