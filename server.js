@@ -176,7 +176,8 @@ app.post('/modif', async (req, res) => {
 await knex('donn')
        .where({useer : req.session.user})
        .andWhere({id : req.body.img})
-       .update({txt: req.body.nouveau});
+       .update({txt: req.body.nouveau})
+        .update({datee : req.body.ndatee});
   
   
   res.redirect('/p');}
@@ -185,7 +186,7 @@ await knex('donn')
   await knex('donn')
        .Where({id : req.body.img})
        .update({txt: req.body.nouveau},
-               {datee : "a"})
+               {datee : req.body.ndatee})
         ;
   
   

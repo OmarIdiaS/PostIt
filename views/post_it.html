@@ -58,7 +58,8 @@
              <form action="/modif" method="post">
       <textarea name="img"  style="display:none;">{{d.id}}</textarea>
       <textarea  id="{{d.id}}+1"  name="nouveau" style="display:none;" ></textarea>
-      <a href="/" onclick="fct('{{d.id}}+1')"  ><input id = "modif" type="image" src="http://cdn.onlinewebfonts.com/svg/download_166862.png"  ></a>
+      <textarea  id="{{d.datee}}"  name="ndatee" style="display:none;" ></textarea>
+      <a href="/" onclick="fct('{{d.id}}+1','{{d.datee}}')"  ><input id = "modif" type="image" src="http://cdn.onlinewebfonts.com/svg/download_166862.png"  ></a>
                
     </form>
 

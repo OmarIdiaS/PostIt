@@ -129,9 +129,20 @@ document.addEventListener('mousemove', function(event) {
  
  }
 
- function fct(x){
+ function fct(x,b){
     alert('voulez-vous modifier votre post_it ? '); 
     var y = prompt("saisir"); 
   document.getElementById(x).value = y;
+   
+   var d = new Date(); 
+	
+	 var j = d.getDate(); 
+	 var mois = d.getMonth() + 1; 
+	 var annee = d.getFullYear(); 
+	 var h = d.getHours(); 
+	 var m = d.getMinutes();
+   var date = j+"/"+mois+"/"+annee+"  "+h+":"+m ; 
+   
+   document.getElementById(b).value = date;
     
   }
