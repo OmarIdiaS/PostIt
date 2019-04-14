@@ -186,6 +186,14 @@ app.get('/:n', async (req, res) => {
 
 
 app.post('/modif', async (req, res) => {
+  
+  var data = {
+    txt: req.body.txt,
+    datee  : req.body.datee,
+    coor:req.body.coor,
+    useer : req.session.user,
+ };
+  
 await knex('donn')
        .where({useer : req.session.user})
        .andWhere({datee : req.body.datee})
