@@ -299,3 +299,10 @@ a.lg{
 text-align : center;
   
 }
+#modif{
+  height:20px;
+ position: absolute;
+    right: 27px;
+    bottom: 2px;
+ 
+}
