@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% block title %}Post_it{% endblock %}
@@ -10,7 +11,6 @@
 {% endblock %}
 
 {% block main %}
-
 
 <body id="post_it" style="height:100%">
  <p id ="welcome" style="position: absolute; right:20px;  top: 40px">
@@ -25,56 +25,216 @@
   <p style= "right:20px; bottom:10px; position: absolute">
     Delete all notes
    </p>
-   </p> 
-  </form>
+   </p> </form>
   
 
-<div id="{{d.id}}" class="postIt" onclick="clickdiv(this.id)" style="left:{{d.x}}px;top:{{d.y}}px;">
+
+
+
+ {% for d in donn %}
+  
+        <div id="{{d.id}}" class="postIt" onclick="clickdiv(this.id)" style="left:{{d.x}}px;top:{{d.y}}px;">
           
           <tr><form action="/suppr" method="post">
+           
              <td> {{ d.useer }}  <br>
-<table>
-  
-{% for d in donn %}
+ 
+     
+    <p id="date">
+      {{d.txt}}</p> 
+               <textarea name="txtt"  style="display:none">{{d.txt}}</textarea> </td>
+  <td><textarea name="img"  style="display:none">{{d.id}}</textarea></td>
+      <p>
+      
+             <td>
+               <p style="vertical-aligh:middle">
+               {{d.login}}
+               </p> </td>
+    <td><a href = "/" class="submit" ><input id = "supp" type="image" src="https://www.freeiconspng.com/uploads/remove-icon-png-24.png" style="height:20px;weight:20px;" value="Delete"></a></td></p>
+   </form>
 
-  <tr>
+        </tr></div>
+         
+    
+  {% endfor %}
+
+  
+  <script>
+  
+    
+    
+    
+    
+    
+ document.getElementById("post_it").ondblclick = function() {myfunction()};
+ 
+ function s(){alert("oui");}
+    
+
    
-    <td>{{d.txt}}<textarea name="txt"  style="display:none;" >{{d.txt}}</textarea></td>
-     
-    <td>{{d.datee}}<textarea name="datee"  style="display:none;" >{{d.datee}}</textarea></td>
     
-    <td>{{d.coor}}</td>
+
+
+
+function clickdiv(id){
+  
+  var mousePosition;
+var offset = [0,0];
+var div;
+var isDown = false;
+div = document.getElementById(id);
+  div.addEventListener('mousedown', function(e) {
+    isDown = true;
+    offset = [
+        div.offsetLeft - e.clientX,
+        div.offsetTop - e.clientY
+    ];
+}, true);
+
+document.addEventListener('mouseup', function() {
+    isDown = false;
+}, true);
+
+document.addEventListener('mousemove', function(event) {
+    event.preventDefault();
+    if (isDown) {
+        mousePosition = {
+
+            x : event.clientX,
+            y : event.clientY
+
+        };
+        div.style.left = (mousePosition.x + offset[0]) + 'px';
+        div.style.top  = (mousePosition.y + offset[1]) + 'px';
+    }
+}, true);
+}
+  
     
-   <form action="/suppr" method="post">
-      
-    <td><textarea name="img"  style="display:none;">{{d.id}}</textarea></td>
-      
-    <td>{{d.useer}}</td>
-    <!--<td><input  type="texte"  name="mach"  ></td>-->
-    <td><a href = "/" class="submit" onclick="alert('voulez-vous supprimer votre post_it ?')"><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Delete" ></a></td>
-      <!--<td><textarea name="mach"  ></textarea></td>-->
-      
-      
-      <!--<td><a href = "/" class="submit"  ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885" value="Update"></a></td>-->
-     
-    </form>
-    <!-- <td><a onclick="s('{{d.id}}', '{{d.useer}}' , '{{d.txt}}', '{{d.datee}}' , '{{d.coor}}')"  ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"  ></a></td>-->
     
-    <form action="/modif" method="post">
-      <td><textarea name="img"  style="display:none;">{{d.id}}</textarea></td>
-      <td><textarea  id="{{d.id}}"  name="nouveau" style="display:none;" ></textarea></td>
-      <td><a href="/" onclick="fct('{{d.id}}')"  ><input type="image" src="https://cdn.glitch.com/e7146dd9-331b-4c07-9d68-fd24547f0732%2Fsuppr-ConvertImage.png?1554507094885"  ></a></td>
-    </form>
+ /*function suppression(){
+  
     
-      </tr>
+    var xhr = new XMLHttpRequest();
+    var url = "https://responsible-justice.glitch.me/suppr";
+    
+
+   
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        var json = JSON.stringify(xhr.responseText);
+        alert('oui');
+        window.location.reload();
+      }
+    };
+   
+   xhr.open("POST", url, true); 
+ //  var data = { login: "", txt : "10/4/2019 7:48", coor : "X :327 Y :191", id = 15};
+  xhr.setRequestHeader("Content-Type", "application/json");
+ // xhr.send(JSON.stringify(data));
+      xhr.send();
+   
+  }*/
+    
+ function myfunction() {
+    
+   // Coordonnees
+    var x = event.clientX ; 
+	  var y = event.clientY; 
+	  var coor = "X :" + x + " Y :"  + y ;
+  
+   // Date
+   var d = new Date(); 
+	
+	var j = d.getDate(); 
+	var mois = d.getMonth() + 1; 
+	var annee = d.getFullYear(); 
+	var h = d.getHours(); 
+	var m = d.getMinutes();
+   var date = j+"/"+mois+"/"+annee+"  "+h+":"+m ; 
+   
+   //TEXTE
+  
+   var texte = prompt("Saisir votre texte ::");
+    var xhr = new XMLHttpRequest();
+    var url = "/p";
+    xhr.open("POST", url, true); 
+
+   
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        var json = JSON.stringify(xhr.responseText);
+        alert("les donnees sont envoyer a la BD");
+        window.location.reload();
+      }
+    };
+  
+  var data = { login: texte, txt : date, x : x, y: y};
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(JSON.stringify(data));
+  console.log('okk');
+   
+ }
+    
+  
+  
+  var width=100;
+ var difference=2;
+ var interveralID =0;
+ //document.getElementById("img1").style.width=width;
  
-{% endfor %}
-  
-  
-</table>
-    
-<script type="text/javascript" src="public/client.js"></script>
+ function increase()
+ {
+ clearInterval(interveralID);
+ interveralID=setInterval(expand,10);
+ }
+ function decrease()
+ {
+ clearInterval(interveralID);
+ interveralID=setInterval(shrink,10);
+ }
+ function expand()
+ {
+ if(width<200)
+ {
+ width = width+difference;
+ document.getElementById("imgg").style.width=width;
+ console.log(width);
+ }
+ else
+ {
+ clearInterval(interveralID);
+ }
  
+ }
+ function shrink()
+ {
+ if(width>100)
+ {
+ width = width-difference;
+ document.getElementById("imgg").style.width=width;
+ console.log(width);
+ }
+ else
+ {
+ clearInterval(interveralID);
+ }
+ 
+ }
   
+</script>
+  
+ <!-- <div>
+    {% for d in donn %}
+    <p> {{ d.login }}</p>
+    <p> {{ d.txt }}</p>
+    <p> {{ d.coor }}</p>
+    {% endfor %}
+  </div>-->
+  
+  
+  <div class="message">
+  {{ message }}
+  </div>
 </body>
 {% endblock %}
