@@ -28,7 +28,7 @@
 {% for d in donn %}
 
   <tr>
-    <form action="/modification" method="post">
+    <!--<form action="/modification" method="post">-->
     <td>{{d.txt}}<textarea name="txt"  style="display:none;" >{{d.txt}}</textarea></td>
      
     <td>{{d.datee}}<textarea name="datee"  style="display:none;" >{{d.datee}}</textarea></td>
@@ -49,7 +49,7 @@
    
     </form>
     
-    </form>
+   <!-- </form>-->
       </tr>
  
 {% endfor %}
