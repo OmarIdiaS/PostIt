@@ -53,6 +53,12 @@
                </p> </td>
     <td><a href = "/" class="submit" ><input id = "supp" type="image" src="https://www.freeiconspng.com/uploads/remove-icon-png-24.png" style="height:20px;weight:20px;" value="Delete"></a></td></p>
    </form>
+            
+             <form action="/modif" method="post">
+      <textarea name="img"  style="display:none;">{{d.id}}</textarea>
+     <textarea  id="{{d.id}}+1"  name="nouveau" style="display:none;" ></textarea>
+     <a href="/" onclick="fct('{{d.id}}+1')"  ><input type="image" src="https://www.freeiconspng.com/uploads/remove-icon-png-24.png" style="height:20px;weight:20px;" ></a>
+    </form>
 
         </tr></div>
          

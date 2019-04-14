@@ -163,8 +163,10 @@ app.get('/logout', (req, res) => {
 
 app.get('/:n', async (req, res) => {
   res.render('tabuser.html',
-             {donn : await knex('donn')
-              .where({useer : req.params.n})});
+             {
+    current : req.session.user, 
+    donn : await knex('donn')
+          .where({useer : req.params.n})});
  
 });
 

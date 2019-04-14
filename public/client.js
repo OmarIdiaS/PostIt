@@ -59,7 +59,9 @@ document.addEventListener('mousemove', function(event) {
    //TEXTE
   
    var texte = prompt("Saisir votre texte ::");
+   
    if(texte == null || texte == ""){ return;}
+   
     var xhr = new XMLHttpRequest();
     var url = "/p";
     xhr.open("POST", url, true); 
