@@ -83,9 +83,40 @@ app.post('/signin', async (req, res) => {
 });
 
 
-
-
 app.get('/', async (req, res) => {
+  
+res.render('guest.html', { 
+        donn: await knex.raw(`SELECT * FROM donn`),
+        //current: req.session.user,
+      });
+});
+
+app.post('/', async (req, res) => {
+  
+  var data = {
+    txt: req.body.txt,
+    datee  : req.body.datee,
+    x: req.body.x , 
+    y : req.body.y , 
+    useer : req.session.user,
+ };
+  
+  try {
+    
+    if (await knex('donn').insert(data)) {
+      res.redirect('/');
+    } 
+  } catch (err) {
+    if (err.code == 'SQLITE_CONSTRAINT') {
+      console.error(err);
+      res.status(500).send('Error');
+      res.redirect('/connexion');
+    }
+  }
+  
+ });
+
+app.get('/p', async (req, res) => {
   
 res.render('post_it.html', { 
         donn: await knex.raw(`SELECT * FROM donn`),
@@ -93,7 +124,7 @@ res.render('post_it.html', {
       });
 });
 
-app.post('/', async (req, res) => {
+app.post('/p', async (req, res) => {
   
   var data = {
     txt: req.body.txt,

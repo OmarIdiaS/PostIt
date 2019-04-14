@@ -36,16 +36,16 @@
   
         <div id="{{d.id}}" class="postIt" onclick="clickdiv(this.id)" style="left:{{d.x}}px;top:{{d.y}}px;">
           
-          <tr><form action="/suppr" method="post">
+          <tr>
            
              <td> {{ d.useer }}  <br>
  
      
     <p id="date">
       {{d.datee}}</p> 
-               <textarea name="txtt"  style="display:none">{{d.txt}}</textarea> </td>
-            <td><textarea name="datee"  style="display:none">{{d.datee}}</textarea> </td>
-  <td><textarea name="img"  style="display:none">{{d.id}}</textarea></td>
+                </td>
+            
+  
       <p>
       
              <td>
@@ -53,16 +53,10 @@
                {{d.txt}}
                  
                </p> </td>
-    <td><a href = "/" class="submit" ><input id = "supp" type="image" src="https://www.freeiconspng.com/uploads/remove-icon-png-24.png" style="height:20px;weight:20px;" value="Delete"></a></td></p>
-   </form>
+    </p>
+   
             
-             <form action="/modif" method="post">
-      <textarea name="img"  style="display:none;">{{d.id}}</textarea>
-      <textarea  id="{{d.id}}+1"  name="nouveau" style="display:none;" ></textarea>
-      <textarea  id="{{d.datee}}"  name="ndatee" style="display:none;" ></textarea>
-      <a href="/" onclick="fct('{{d.id}}+1','{{d.datee}}')"  ><input id = "modif" type="image" src="http://cdn.onlinewebfonts.com/svg/download_166862.png"  ></a>
-               
-    </form>
+             
 
         </tr></div>
          
