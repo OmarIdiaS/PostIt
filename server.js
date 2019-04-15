@@ -182,7 +182,7 @@ app.post('/admindelete', async (req, res) => {
   if(req.session.user == "admin"){
     await knex('donn').del();
   }
-    res.redirect('/');
+    res.redirect('/p');
 }); 
 
 
