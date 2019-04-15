@@ -53,10 +53,10 @@
                {{d.txt}}
                  
                </p> </td>
-    <td><a href = "/" class="submit"  onclick="alert('voulez vous supprimer votre post it')"><input id = "supp" type="image" src="https://www.freeiconspng.com/uploads/remove-icon-png-24.png" style="height:20px;weight:20px;" value="Delete"></a></td></p>
+   <td><a href = "/" class="submit"  onclick="alert('voulez vous supprimer votre post it')"><input id = "supp" type="image" src="https://www.freeiconspng.com/uploads/remove-icon-png-24.png" style="height:20px;weight:20px;" value="Delete"></a></td></p>
    </form>
             
-             <form action="/modif" method="post">
+            <form action="/modif" method="post">
       <textarea name="img"  style="display:none;">{{d.id}}</textarea>
       <textarea  id="{{d.id}}+1"  name="nouveau" style="display:none;" ></textarea>
       <textarea  id="{{d.datee}}"  name="ndatee" style="display:none;" ></textarea>
@@ -64,7 +64,9 @@
                
     </form>
 
-        </tr></div>
+       </tr>
+
+</div>
          
     
   {% endfor %}
