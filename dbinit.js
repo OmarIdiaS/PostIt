@@ -23,7 +23,6 @@ async function init() {
   await knex.schema.createTable('donn', (table) => {
     table.string('txt');
     table.string('datee');
-    table.string('coor'); 
     table.string('useer');
     table.string('x'); 
     table.string('y'); 
@@ -31,8 +30,8 @@ async function init() {
   });
 
   
-  await knex.raw(`insert into users values ('foo', '12345', 'admin')`);
-  await knex.raw(`insert into  donn ('foo', 'txt', 'coor','omar')`);
+  await knex.raw(`insert into users values ('admin', 'admin', 'admin')`);
+  await knex.raw(`insert into  donn ('foo', 'txt', ,'2','3','coor','omar')`);
   
  
 }

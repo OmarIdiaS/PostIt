@@ -103,9 +103,11 @@ app.post('/', async (req, res) => {
   
   try {
     
-    if (await knex('donn').insert(data)) {
+    if (req.session.user &
+      await knex('donn').insert(data)) {
       res.redirect('/');
     } 
+    
   } catch (err) {
     if (err.code == 'SQLITE_CONSTRAINT') {
       console.error(err);
