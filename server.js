@@ -194,6 +194,7 @@ app.get('/logout', (req, res) => {
 
 
 app.get('/:n', async (req, res) => {
+  
   res.render('tabuser.html',
              {
     current : req.session.user, 
