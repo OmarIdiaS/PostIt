@@ -68,7 +68,7 @@ app.post('/signin', async (req, res) => {
     if (data.login 
         && data.pass
         && await knex('users').insert(data)) {
-      res.redirect('/');
+      res.redirect('/connexion');
     } else {
       res.render('signin.html', { data: data, message: 'Bad data' });
     }
