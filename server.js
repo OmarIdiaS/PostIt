@@ -199,7 +199,7 @@ app.get('/:n', async (req, res) => {
   
   res.render('tabuser.html',
              {
-    current : req.session.user, 
+    current :req.session.user, 
     donn : await knex('donn')
           .where({useer : req.params.n})
   });

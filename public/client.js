@@ -73,9 +73,7 @@ document.addEventListener('mousemove', function(event) {
         alert("les donnees sont envoyer a la BD");
         window.location.reload();
       }
-      else{
-        alert("Veuillez ")
-      }
+      
     };
   
   var data = { login: texte, txt : date, x : x, y: y};
